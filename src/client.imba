@@ -63,6 +63,8 @@ tag SongBook
 			html:dataset:theme = settings:theme
 		if getCookie('song')
 			getSong(getCookie('song'))
+		else
+			getSong(@current_song)
 		if getCookie('font')
 			settings:font:size = parseInt(getCookie('font'))
 		if getCookie('font-family')
