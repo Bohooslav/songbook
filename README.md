@@ -1,7 +1,6 @@
-# Hello World Imba
+# Songbook Imba
 
-Tiny template for testing out Imba using [CSS modules][0]. Click [Use this
-template][1] on GitHub to create a new repository with this template.
+Tiny songbook
 
 ## Getting started
 
