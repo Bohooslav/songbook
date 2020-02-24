@@ -45,6 +45,16 @@ let fonts = [
 	},
 ]
 
+document:onkeyup = do |e|
+	var e = e || window:event
+	if document.getElementById("search") != document:activeElement
+		if e:code == "ArrowRight" && e:ctrlKey
+			let songbook = document:getElementsByClassName("SongBook")
+			songbook[0]:_tag.slideSong(1)
+		elif e:code == "ArrowLeft" && e:ctrlKey
+			let songbook = document:getElementsByClassName("SongBook")
+			songbook[0]:_tag.slideSong(-1)
+
 
 tag SongBook
 	prop query default: ""
@@ -163,12 +173,17 @@ tag SongBook
 		if songs[index_of_current_song + value]
 			@thesong = songs[index_of_current_song + value]
 			setCookie('song', @thesong:name)
+			if document.getElementById('top')
+				document.getElementById('top').focus()
+			Imba.commit()
 
 	def getSong songname
 		let index_of_current_song = songs.indexOf(songs.find(do |song| return song:name == songname))
 		if songs[index_of_current_song]
 			@thesong = songs[index_of_current_song]
 		setCookie('song', @thesong:name)
+		if document.getElementById('top')
+			document.getElementById('top').focus()
 		settings_menu_left = -300
 		songs_menu_left = -300
 		mobimenu = ''
@@ -211,11 +226,12 @@ tag SongBook
 
 	def render
 		<self .hold_by_finger=(inzone || onzone)>
+			<span#top tabindex="0">
 			<nav style="left: {songs_menu_left}px; box-shadow: 0 0 {(songs_menu_left + 300) / 12}px rgba(0, 0, 0, 0.3);">
 				<input#search[@query] placeholder="Пошук">
 				<.songs_list>
 					for song in songs when song:name.toLowerCase().indexOf(query.toLowerCase()) >= 0
-						<p.song_name .active_song=(song:name == @thesong:name) :tap.prevent.getSong(song:name)> song:title
+						<p.song_name .active_song=song:title==@thesong:title :tap.prevent.getSong(song:name)> song:title
 					if !(songs.filter(do |song| return song:name.toLowerCase().indexOf(query.toLowerCase()) >= 0):length)
 						<p.song_name style="white-space: pre;"> "(ಠ╭╮ಠ)    ¯\\_(ツ)_/¯   ノ( ゜-゜ノ)"
 					<.freespace>
