@@ -1,0 +1,327 @@
+html[data-theme='dark'] {
+    --background-color: #04060c;
+    --text-color: #fee;
+    --accent-color: olivedrab;
+    --accent-hover-color: yellowgreen;
+    --btn-bg: #88f2;
+    --btn-bg-hover: #88f4;
+}
+
+html[data-theme='light'] {
+    --background-color: #fee;
+    --text-color: #04060c;
+    --accent-color: navy;
+    --accent-hover-color: #417690;
+    --btn-bg: #47f2;
+    --btn-bg-hover: #47f1;
+}
+
+html[data-theme="loading"] body {
+    background-color: #04060C;
+}
+
+* {
+    box-sizing: border-box;
+    scrollbar-color: var(--btn-bg-hover) #00000000;
+    scrollbar-width: auto;
+    margin: 0;
+    padding: 0;
+    transition: all 300ms ease 0s;
+    transition-delay: 0ms;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+*::selection {
+    text-decoration-color: var(--background-color);
+    color: var(--background-color);
+    background-color: var(--accent-hover-color);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #38383D00;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--btn-bg-hover);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--btn-bg);
+}
+
+:focus {
+    outline: none;
+}
+
+body {
+    font-family: sans, sans-serif;
+    font-size: 18px;
+    background: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+}
+
+@keyframes text-came {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+._text-as-html {
+    -webkit-animation: text-came 300ms ease both;
+    animation: text-came 300ms ease both;
+}
+
+h1 {
+    font-family: "Roboto Slab", sans-serif;
+}
+
+:focus {
+    outline: none !important;
+}
+
+.SongBook {
+    min-height: 100vh;
+    width: 100%;
+    padding: 4vw 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+nav,
+aside {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+nav {
+    position: fixed;
+    font-family: "Roboto Slab", sans-serif;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    display: block;
+    background-color: var(--background-color);
+    padding: 32px 12px;
+    z-index: 999;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#search {
+    width: 100%;
+    padding: 4px;
+    font-size: 20px;
+    background: var(--btn-bg);
+    border: 1px solid var(--btn-bg);
+    border-radius: 4px;
+    margin: 0 0 24px;
+    color: inherit;
+    padding: 4px 8px;
+    -webkit-border-radius: 8px;
+}
+
+#search:focus {
+    background: var(--btn-bg-hover);
+}
+
+.songs_list {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.song_name {
+    display: block;
+    color: inherit;
+    background: inherit;
+    padding: 12px 0;
+    height: auto;
+    cursor: pointer;
+    width: 100%;
+}
+
+.song_name:hover {
+    color: var(--accent-hover-color);
+}
+
+main {
+    white-space: pre;
+    overflow-x: auto;
+}
+
+main h1 {
+    white-space: break-spaces;
+    margin-bottom: 1em;
+}
+
+.bridge {
+    font-style: italic;
+    text-align: right;
+}
+
+.refrain {
+    font-weight: bold;
+}
+
+aside {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    padding: 32px 12px;
+    z-index: 4;
+    overflow-y: auto;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btnbox {
+    cursor: pointer;
+    height: 46px;
+    margin: 16px 0;
+}
+
+.cbtn {
+    width: 50%;
+    height: 100%;
+    fill: var(--text-color);
+    color: var(--text-color);
+    display: inline-block;
+    text-align: center;
+}
+
+.cbtn:hover {
+    fill: var(--accent-hover-color);
+    color: var(--accent-hover-color);
+    background-color: var(--btn-bg-hover);
+    border-radius: 8px;
+}
+
+.languageflex {
+    display: flex;
+    align-items: center;
+    margin: auto 0 24px;
+    cursor: default;
+    height: 38px;
+    cursor: pointer;
+}
+
+.change_language {
+    color: inherit;
+    padding: 8px 16px;
+    margin-left: auto;
+    background-color: var(--btn-bg);
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+.change_language:hover {
+    background-color: var(--btn-bg-hover);
+}
+
+.languages {
+    background: var(--background-color);
+    position: absolute;
+    right: 32px;
+    transform: scale(0.95);
+    border: 1px solid var(--btn-bg-hover);
+    border-radius: 4px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: calc(inherit + 1);
+}
+
+.show_languages {
+    transform: translateY(-32px);
+    visibility: visible;
+    opacity: 1;
+    z-index: 10000000;
+}
+
+.languages button {
+    background: var(--btn-bg);
+    color: inherit;
+    cursor: pointer;
+    padding: 8px 16px;
+    margin: 1px;
+    border-radius: 2px;
+    font-size: 16px;
+    border: none;
+    display: block;
+    width: 100%;
+}
+
+.languages button:hover {
+    background-color: var(--btn-bg-hover);
+}
+
+.hold_by_finger aside,
+.hold_by_finger nav {
+    transition: none;
+}
+
+.freespace {
+    min-height: 128px;
+}
+
+footer {
+    margin-top: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
+address {
+    margin-top: 16px;
+}
+
+address, address a {
+    color: #888;
+    font-size: 12px;
+}
+address a:hover {
+    color: #88f;
+}
