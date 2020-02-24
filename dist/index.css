@@ -186,7 +186,7 @@ nav {
 }
 
 main {
-    white-space: pre-wrap;
+    white-space: pre;
     overflow-x: auto;
     max-width: 100%;
 }
@@ -204,6 +204,37 @@ main h1 {
 
 .refrain {
     font-weight: bold;
+}
+
+.arrows {
+    display: flex;
+    justify-content: space-between;
+    direction: ltr;
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    width: 64px;
+    margin: 24px 0;
+    fill: var(--text-color);
+    cursor: pointer;
+}
+
+.arrow:hover {
+    background-color: var(--btn-bg);
+    border-radius: 50%;
+    fill: var(--accent-hover-color);
+}
+
+.arrow_next {
+    transform: rotate(-90deg) scale(2);
+}
+
+.arrow_prew {
+    transform: rotate(90deg) scale(2);
 }
 
 aside {

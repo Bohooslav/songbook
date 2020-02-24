@@ -14,7 +14,6 @@ let inzone = no
 let onzone = no
 let songs_menu_left = -300
 let settings_menu_left = -300
-let slide_deviation = 0
 let fonts = [
 	{
 		name: "Vollkorn",
@@ -131,11 +130,6 @@ tag SongBook
 				songs_menu_left = touch.dx
 			if mobimenu == 'show_settings' && touch.dx > 0
 				settings_menu_left = - touch.dx
-		if document.getSelection() == '' && Math.abs(touch.dy) < 64 && !mobimenu && !inzone && !onzone
-			if touch.dx < -32
-				slide_deviation = touch.dx / Math.E
-			elif touch.dx > 32
-				slide_deviation = touch.dx / Math.E
 		Imba.commit
 
 	def ontouchend touch
@@ -160,19 +154,12 @@ tag SongBook
 				settings_menu_left = -300
 				mobimenu = ''
 			else settings_menu_left = 0
-		elif document.getSelection() == '' && Math.abs(touch.dy) < 64 && !mobimenu && !inzone && !onzone
-			if touch.dx < -64
-				slideSong(1)
-			elif touch.dx > 64
-				slideSong(-1)
 		inzone = no
 		onzone = no
-		slide_deviation = 0
 		Imba.commit
 	
 	def slideSong value
 		let index_of_current_song = songs.indexOf(songs.find(do |song| return song:name == @thesong:name))
-		log "Here we go", index_of_current_song
 		if songs[index_of_current_song + value]
 			@thesong = songs[index_of_current_song + value]
 			setCookie('song', @thesong:name)
@@ -232,9 +219,18 @@ tag SongBook
 					if !(songs.filter(do |song| return song:name.toLowerCase().indexOf(query.toLowerCase()) >= 0):length)
 						<p.song_name style="white-space: pre;"> "(ಠ╭╮ಠ)    ¯\\_(ツ)_/¯   ノ( ゜-゜ノ)"
 					<.freespace>
-			<main#main style="font-family: {settings:font:family}; font-size: {settings:font:size}px; line-height: {settings:font:line-height};transform: translateX({slide_deviation}px)">
+			<main#main style="font-family: {settings:font:family}; font-size: {settings:font:size}px; line-height: {settings:font:line-height};">
 				<h1> @thesong:name
 				<text-as-html[@thesong]>
+				<.arrows>
+					<a.arrow :tap.prevent.slideSong(-1) title="Попередня">
+						<svg:svg.arrow_prew xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
+							<svg:title> "Попередня"
+							<svg:polygon points="4,3 1,0 0,1 4,5 8,1 7,0">
+					<a.arrow :tap.prevent.slideSong(1) title="Наступна">
+						<svg:svg.arrow_next xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
+							<svg:title> "Наступна"
+							<svg:polygon points="4,3 1,0 0,1 4,5 8,1 7,0">
 			<aside style="right: {settings_menu_left}px; box-shadow: 0 0 {(settings_menu_left + 300) / 12}px rgba(0, 0, 0, 0.3);">
 				<.languageflex :tap.prevent=(do @show_fonts = !@show_fonts)>
 					<button.change_language>
