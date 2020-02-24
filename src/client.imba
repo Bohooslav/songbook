@@ -49,7 +49,7 @@ let fonts = [
 
 tag SongBook
 	prop query default: ""
-	prop current_song default: ""
+	prop current_song default: "Благодарю Тебя, Создатель"
 	prop text default: ""
 	prop show_fonts default: no
 
