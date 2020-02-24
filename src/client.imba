@@ -46,6 +46,7 @@ let fonts = [
 	},
 ]
 
+
 tag SongBook
 	prop query default: ""
 	prop current_song default: ""
