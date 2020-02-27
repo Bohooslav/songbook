@@ -14,7 +14,12 @@ let inzone = no
 let onzone = no
 let songs_menu_left = -300
 let settings_menu_left = -300
+let show_history
 let fonts = [
+	{
+		name: "Vollkorn CS",
+		code: "'Vollkorn CS', serif"
+	},
 	{
 		name: "Vollkorn",
 		code: "'Vollkorn', serif"
@@ -26,10 +31,6 @@ let fonts = [
 	{
 		name: "Montserrat",
 		code: "'Montserrat', sans-serif"
-	},
-	{
-		name: "M PLUS 1p",
-		code: "'M PLUS 1p', sans-serif"
 	},
 	{
 		name: "System UI",
@@ -62,6 +63,7 @@ tag SongBook
 	prop text default: ""
 	prop thesong default: {}
 	prop show_fonts default: no
+	prop history default: []
 
 	def build
 		if getCookie('theme')
@@ -172,21 +174,45 @@ tag SongBook
 		let index_of_current_song = songs.indexOf(songs.find(do |song| return song:name == @thesong:name))
 		if songs[index_of_current_song + value]
 			@thesong = songs[index_of_current_song + value]
-			setCookie('song', @thesong:name)
+			setCookie('song', @thesong:title)
+			saveHistory(@thesong:title)
 			if document.getElementById('top')
 				document.getElementById('top').focus()
 			Imba.commit()
 
-	def getSong songname
-		let index_of_current_song = songs.indexOf(songs.find(do |song| return song:name == songname))
+	def getSong songtitle
+		let index_of_current_song = songs.indexOf(songs.find(do |song| return song:title == songtitle))
 		if songs[index_of_current_song]
 			@thesong = songs[index_of_current_song]
-		setCookie('song', @thesong:name)
+		else
+			@thesong = songs[0]
+		setCookie('song', @thesong:title)
 		if document.getElementById('top')
 			document.getElementById('top').focus()
+		saveHistory(@thesong:title)
 		settings_menu_left = -300
 		songs_menu_left = -300
 		mobimenu = ''
+		@query = ''
+		show_history = no
+
+	def saveHistory song_name
+		if getCookie("history")
+			@history = JSON.parse(getCookie("history"))
+		if @history.find(do |element| return element:song == song_name)
+			@history.splice(@history.indexOf(@history.find(do |element| return element:song == song_name)), 1)
+		@history.push({"song": song_name})
+		window:localStorage.setItem("history", JSON.stringify(@history))
+
+	def turnHistory
+		show_history = !show_history
+		settings_menu_left = -300
+		mobimenu = ''
+
+	def clearHistory
+		turnHistory
+		@history = []
+		window:localStorage.setItem("history", "[]")
 
 	def changeTheme theme
 		let html = document.querySelector('#html')
@@ -231,7 +257,7 @@ tag SongBook
 				<input#search[@query] placeholder="Пошук">
 				<.songs_list>
 					for song in songs when song:name.toLowerCase().indexOf(query.toLowerCase()) >= 0
-						<p.song_name .active_song=song:title==@thesong:title :tap.prevent.getSong(song:name)> song:title
+						<p.song_name .active_song=song:title==@thesong:title :tap.prevent.getSong(song:title)> song:title
 					if !(songs.filter(do |song| return song:name.toLowerCase().indexOf(query.toLowerCase()) >= 0):length)
 						<p.song_name style="white-space: pre;"> "(ಠ╭╮ಠ)    ¯\\_(ツ)_/¯   ノ( ゜-゜ノ)"
 					<.freespace>
@@ -248,9 +274,15 @@ tag SongBook
 							<svg:title> "Наступна"
 							<svg:polygon points="4,3 1,0 0,1 4,5 8,1 7,0">
 			<aside style="right: {settings_menu_left}px; box-shadow: 0 0 {(settings_menu_left + 300) / 12}px rgba(0, 0, 0, 0.3);">
-				<.languageflex :tap.prevent=(do @show_fonts = !@show_fonts)>
-					<button.change_language>
-						settings:font:name
+				<.aside_flex style="margin-top: auto;" :tap.prevent.turnHistory()>
+					<svg:svg.helpsvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<svg:title> "Історія"
+						<svg:path d="M0 0h24v24H0z" fill="none">
+						<svg:path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z">
+					"Історія"
+				<.aside_flex :tap.prevent=(do @show_fonts = !@show_fonts)>
+					<span.font_icon> "B"
+					settings:font:name
 					<.languages .show_languages=@show_fonts>
 						for font in fonts
 							<button :tap.prevent.setFontFamily(font) css:font-family=font:code> font:name
@@ -297,7 +329,22 @@ tag SongBook
 					<svg:path d="M0,0h24v24H0V0z" fill="none">
 					<svg:path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z">
 
-
+			<section.history .show_history=show_history>
+				<.history_hat css:margin="0">
+					<svg:svg.close_history :tap.prevent.turnHistory xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" tabindex="0">
+							<svg:title> "Закрити"
+							<svg:path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z">
+					<h1 css:margin="0 0 0 8px"> "Історія"
+					<svg:svg.close_history :tap.prevent.clearHistory xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="padding: 0; margin: 0 12px 0 16px; width: 32px;" alt="Видалити" css:margin-left="auto">
+						<svg:title> "Видалити"
+						<svg:path d="M15 16h4v2h-4v-2zm0-8h7v2h-7V8zm0 4h6v2h-6v-2zM3 20h10V8H3v12zM14 5h-3l-1-1H6L5 5H2v2h12V5z">
+				<article.historylist>
+					if @history:length
+						for h in @history.slice().reverse
+							<a.song_name style="padding: 12px 8px;" :tap.prevent.getSong(h:song)>
+								h:song
+					else
+						<p css:padding="12px"> "Історія Пуста"
 
 tag text-as-html < p
 	prop thegiventext default: ""

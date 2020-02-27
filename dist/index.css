@@ -279,27 +279,34 @@ aside {
     border-radius: 8px;
 }
 
-.languageflex {
-    display: flex;
+.aside_flex {
     align-items: center;
-    margin: auto 0 24px;
-    cursor: default;
-    height: 38px;
-    cursor: pointer;
-}
-
-.change_language {
     color: inherit;
-    padding: 8px 16px;
-    margin-left: auto;
-    background-color: var(--btn-bg);
     cursor: pointer;
-    font-size: 18px;
-    border-radius: 4px;
+    display: flex;
+    height: 38px;
+    margin: 8px 0;
+    fill: var(--text-color);
 }
 
-.change_language:hover {
-    background-color: var(--btn-bg-hover);
+.aside_flex:hover {
+    color: var(--accent-hover-color);
+    fill: var(--accent-hover-color);
+}
+
+.font_icon {
+    font-family: 'Vollkorn CS', serif;
+    font-size: 24px;
+    padding: 4px 8px;
+    width: 32px;
+    margin-right: 12px;
+}
+
+.helpsvg {
+    margin-right: 12px;
+    fill: inherit;
+    height: 32px;
+    width: 32px;
 }
 
 .languages {
@@ -310,6 +317,7 @@ aside {
     border: 1px solid var(--btn-bg-hover);
     border-radius: 4px;
     visibility: hidden;
+    color: var(--text-color);
     opacity: 0;
     z-index: calc(inherit + 1);
 }
@@ -336,6 +344,7 @@ aside {
 
 .languages button:hover {
     background-color: var(--btn-bg-hover);
+    color: var(--accent-color);
 }
 
 .hold_by_finger aside,
@@ -371,7 +380,6 @@ address a:hover {
     color: #88f;
 }
 
-
 .navigation {
     top: 0;
     width: 32px;
@@ -385,4 +393,56 @@ address a:hover {
 
 .navigation:hover {
     fill: var(--accent-hover-color);
+}
+
+.history {
+    position: fixed;
+    bottom: -100%;
+    right: -300px;
+    width: 300px;
+    max-height: 97vh;
+    visibility: hidden;
+    padding: 8px;
+    z-index: 4;
+    background: var(--background-color);
+    overflow-y: auto;
+    border-radius: 16px;
+    border: 1px solid var(--btn-bg-hover);
+    box-shadow: 0 14px 28px #04060c40,
+        0 10px 10px #04060c38;
+    transform: scale(0.96) translateY(-16px);
+}
+
+.show_history {
+    right: 3vw;
+    bottom: 2%;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+}
+
+.history_hat {
+    display: flex;
+    align-items: center;
+    cursor: default;
+    height: 38px;
+    cursor: pointer;
+}
+
+.close_history {
+    width: 26px;
+    height: 50px;
+    padding: 12px 0;
+    margin: 0px 8px;
+    fill: var(--text-color);
+    cursor: pointer;
+}
+
+.close_history:hover {
+    fill: firebrick;
+}
+
+.historylist {
+    overflow-y: auto;
+    max-height: calc(97vh - 82px);
 }
