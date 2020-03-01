@@ -1,5 +1,5 @@
 var APP_PREFIX = 'SongBook_' // Identifier for this app (this needs to be consistent across every cache update)
-var VERSION = 'version_02' // Version of the off-line cache (change this value everytime you want to update cache)
+var VERSION = 'version_03' // Version of the off-line cache (change this value everytime you want to update cache)
 var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [ // Add URL you want to cache in this list.
   '/songbook/', // If you have separate JS/CSS files,
@@ -15,8 +15,8 @@ var URLS = [ // Add URL you want to cache in this list.
 self.addEventListener('fetch', function (e) {
   console.log('fetch request : ' + e.request.url)
   e.respondWith(
-    caches.match(event.request).then((resp) => {
-      return fetch(event.request).then((response) => {
+    caches.match(e.request).then((resp) => {
+      return fetch(e.request).then((response) => {
         if (!response || response.status !== 200 || response.type !== 'basic') {
           return response;
         }
@@ -24,7 +24,7 @@ self.addEventListener('fetch', function (e) {
 
         caches.open(CACHE_NAME)
           .then(function (cache) {
-            cache.put(event.request, responseToCache);
+            cache.put(e.request, responseToCache);
           });
         console.log("saved response")
 
