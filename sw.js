@@ -31,8 +31,8 @@ self.addEventListener('fetch', function (e) {
         return response;
       }) || resp;
     }).catch(() => {
-      return caches.match('/');
-      // return caches.match('/songbook/dist/index.html');
+//       return caches.match('/');
+      return caches.match('/songbook/index.html');
     })
   )
 })
