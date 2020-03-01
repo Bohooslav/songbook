@@ -4,7 +4,7 @@ let settings = {
 	theme: 'light',
 	font: {
 		size: 20,
-		family: "Sans",
+		family: "Sans, sans-serif",
 		name: "Sans",
 		line-height: 1.6
 	}
@@ -312,13 +312,14 @@ tag SongBook
 						<svg:rect x="0" y="11" width="38" height="2">
 						<svg:rect x="0" y="22" width="18" height="2">
 			<footer>
-				<h1>
+				<h1 style="font-size: 32px;">
 					"♪└|∵|┐♪└|∵|┘♪┌|∵|┘♪"
 				<address>
 					"© "
-					<time time:datetime="2020-02-24T12:38"> "2020"
-					<a target="_blank" href="mailto:bpavlisinec@gmail.com"> " Павлишинець Богуслав "
-					<a target="_blank" href="https://t.me/Boguslavv"> "| Telegram"
+					<time time:datetime="2020-02-24T12:38"> "2020 "
+					<a target="_blank" href="https://t.me/yanch4i"> "Ян Кушілка"
+					" | "
+					<a target="_blank" href="https://t.me/Boguslavv"> "Павлишинець Богуслав"
 
 			<svg:svg.navigation :tap.prevent.toggleSongsMenu() style="left: 0;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
 				<svg:title> "Пісні"

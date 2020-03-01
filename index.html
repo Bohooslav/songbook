@@ -1,0 +1,38 @@
+<!doctype html>
+<html id="html" lang="ua" data-theme='loading'>
+
+<head>
+  <title>СПІВАЙТЕ ДЛЯ ГОСПОДА</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="dist/index.css">
+  <link rel="stylesheet" type="text/css" href="dist/fonts/stylesheet.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" type="image/png" href="dist/images/spaces_-LSPhP31nsEVE02x38XJ_avatar.png">
+  <meta name="description" content="СПІВАЙТЕ ДЛЯ ГОСПОДА">
+  <meta property="og:title" content="СПІВАЙТЕ ДЛЯ ГОСПОДА">
+  <meta property="og:description" content="Пісник Буштино">
+  <meta property="og:image" content="dist/images/39d13a8f6b1750f9f7a63a76f89d436e.jpg">
+  <meta name="twitter:image:src" content="dist/images/39d13a8f6b1750f9f7a63a76f89d436e.jpg">
+  <meta name="theme-color" content="#04060c" />
+
+<body>
+  <script src="dist/client.js"></script>
+  <noscript>
+    На жаль, цьому додатку необхідний JavaScript, який ви вимкнули у вашому браузері. Відкрийте налаштування сайтів в вашому браузері та ввімкніть JavaScript для функціонування цього додатку.
+  </noscript>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').then(function (registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>

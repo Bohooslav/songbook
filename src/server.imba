@@ -1,7 +1,7 @@
 var express = require 'express'
 var server = express()
 
-server.use(express.static('./dist'))
+server.use(express.static('./'))
 
 server.get '/' do |req,res|
 	var html = <html>
