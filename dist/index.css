@@ -396,7 +396,7 @@ address a:hover {
     width: 32px;
     height: 32px;
     margin: 3vw;
-    fill: var(--btn-bg);
+    fill: var(--btn-bg-hover);
     position: absolute;
     z-index: 1;
     cursor: pointer;
@@ -459,7 +459,7 @@ address a:hover {
 }
 
 .main {
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -468,12 +468,12 @@ address a:hover {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    filter: contrast(150%) grayscale(40%);
+    filter: contrast(120%) grayscale(40%);
 }
 
 #wrapper {
@@ -499,7 +499,6 @@ address a:hover {
     margin: 0 auto auto;
     padding: 4px 24px;
     font-size: 24px;
-    border-radius: 2px;
     background: #0000;
     border: 2px solid #fee;
     color: #fee;
