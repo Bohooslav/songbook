@@ -66,7 +66,7 @@ body {
     font-size: 18px;
     background: var(--background-color);
     color: var(--text-color);
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 ul,
@@ -110,7 +110,7 @@ main,
 }
 
 .SongBook {
-    min-height: 100vh;
+    min-height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -473,7 +473,7 @@ address a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    filter: contrast(120%) grayscale(40%);
+    filter: contrast(150%) grayscale(60%);
 }
 
 #wrapper {
