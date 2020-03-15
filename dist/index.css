@@ -99,8 +99,10 @@ main,
     animation: text-came 300ms ease both;
 }
 
-h1 {
-    font-family: "Roboto Slab", sans-serif;
+._text-as-html {
+    white-space: pre;
+    overflow-x: auto;
+    max-width: 100%;
 }
 
 :focus {
@@ -110,11 +112,14 @@ h1 {
 .SongBook {
     min-height: 100vh;
     width: 100%;
-    padding: 4vw 3vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.padding {
+    padding: 4vw 3vw;
 }
 
 nav,
@@ -129,7 +134,6 @@ aside {
 
 nav {
     position: fixed;
-    font-family: "Roboto Slab", sans-serif;
     top: 0;
     bottom: 0;
     width: 300px;
@@ -143,6 +147,14 @@ nav {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+nav h1 {
+    margin-bottom: 16px;
+    margin-right: 12px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
 }
 
 #search {
@@ -186,8 +198,6 @@ nav {
 }
 
 main {
-    white-space: pre;
-    overflow-x: auto;
     max-width: 100%;
 }
 
@@ -313,7 +323,8 @@ aside {
     background: var(--background-color);
     position: absolute;
     right: 32px;
-    transform: scale(0.95);
+    transform: scale(0.95) translateX(16px);
+    transform-origin: bottom right;
     border: 1px solid var(--btn-bg-hover);
     border-radius: 4px;
     visibility: hidden;
@@ -445,4 +456,63 @@ address a:hover {
 .historylist {
     overflow-y: auto;
     max-height: calc(97vh - 82px);
+}
+
+.main {
+    height: 100vh;
+    width: 100%;
+}
+
+#background {
+    background-image: url('images/green-leaves-plants.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: contrast(150%) grayscale(40%);
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0006;
+}
+
+.main h1 {
+    color: #fee;
+    font-size: 3em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: auto auto 6vh;
+    position: relative;
+}
+
+.main button {
+    margin: 0 auto auto;
+    padding: 4px 24px;
+    font-size: 24px;
+    border-radius: 2px;
+    background: #0000;
+    border: 2px solid #fee;
+    color: #fee;
+    cursor: pointer;
+}
+
+.main button:hover {
+    color: #fee;
+    transform: scale(1.1);
+    transform-origin: bottom;
+}
+
+.main p {
+    margin: 0 auto 16px;
+    color: #c2834e;
 }

@@ -1,7 +1,7 @@
 import {songs} from "./songs.imba"
 
 let settings = {
-	theme: 'light',
+	theme: 'dark',
 	font: {
 		size: 20,
 		family: "Sans, sans-serif",
@@ -59,7 +59,7 @@ document:onkeyup = do |e|
 
 tag SongBook
 	prop query default: ""
-	prop current_song default: "Благодарю Тебя, Создатель"
+	prop current_song default: ""
 	prop text default: ""
 	prop thesong default: {}
 	prop show_fonts default: no
@@ -75,8 +75,6 @@ tag SongBook
 			html:dataset:theme = settings:theme
 		if getCookie('song')
 			getSong(getCookie('song'))
-		else
-			getSong(@current_song)
 		if getCookie('font')
 			settings:font:size = parseInt(getCookie('font'))
 		if getCookie('font-family')
@@ -169,7 +167,7 @@ tag SongBook
 		inzone = no
 		onzone = no
 		Imba.commit
-	
+
 	def slideSong value
 		let index_of_current_song = songs.indexOf(songs.find(do |song| return song:name == @thesong:name))
 		if songs[index_of_current_song + value]
@@ -185,7 +183,7 @@ tag SongBook
 		if songs[index_of_current_song]
 			@thesong = songs[index_of_current_song]
 		else
-			@thesong = songs[0]
+			@thesong = {name: ''}
 		setCookie('song', @thesong:title)
 		if document.getElementById('top')
 			document.getElementById('top').focus()
@@ -251,9 +249,10 @@ tag SongBook
 
 
 	def render
-		<self .hold_by_finger=(inzone || onzone)>
+		<self .padding=@thesong:name .hold_by_finger=(inzone || onzone)>
 			<span#top tabindex="0">
 			<nav style="left: {songs_menu_left}px; box-shadow: 0 0 {(songs_menu_left + 300) / 12}px rgba(0, 0, 0, 0.3);">
+				<h1 :tap.prevent.getSong('')> "СЛАВТЕ ГОСПОДА"
 				<input#search[@query] placeholder="Пошук">
 				<.songs_list>
 					for song in songs when song:name.toLowerCase().indexOf(query.toLowerCase()) >= 0
@@ -261,18 +260,36 @@ tag SongBook
 					if !(songs.filter(do |song| return song:name.toLowerCase().indexOf(query.toLowerCase()) >= 0):length)
 						<p.song_name style="white-space: pre;"> "(ಠ╭╮ಠ)    ¯\\_(ツ)_/¯   ノ( ゜-゜ノ)"
 					<.freespace>
-			<main#main style="font-family: {settings:font:family}; font-size: {settings:font:size}px; line-height: {settings:font:line-height};">
-				<h1> @thesong:name
-				<text-as-html[@thesong]>
-				<.arrows>
-					<a.arrow :tap.prevent.slideSong(-1) title="Попередня">
-						<svg:svg.arrow_prew xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
-							<svg:title> "Попередня"
-							<svg:polygon points="4,3 1,0 0,1 4,5 8,1 7,0">
-					<a.arrow :tap.prevent.slideSong(1) title="Наступна">
-						<svg:svg.arrow_next xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
-							<svg:title> "Наступна"
-							<svg:polygon points="4,3 1,0 0,1 4,5 8,1 7,0">
+			if @thesong:name
+				<main#main style="font-family: {settings:font:family}; font-size: {settings:font:size}px; line-height: {settings:font:line-height};">
+					<h1> @thesong:name
+					<text-as-html[@thesong]>
+					<.arrows>
+						<a.arrow :tap.prevent.slideSong(-1) title="Попередня">
+							<svg:svg.arrow_prew xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
+								<svg:title> "Попередня"
+								<svg:polygon points="4,3 1,0 0,1 4,5 8,1 7,0">
+						<a.arrow :tap.prevent.slideSong(1) title="Наступна">
+							<svg:svg.arrow_next xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
+								<svg:title> "Наступна"
+								<svg:polygon points="4,3 1,0 0,1 4,5 8,1 7,0">
+
+				<footer>
+					<h1 style="font-size: 32px;">
+						"♪└|∵|┐♪└|∵|┘♪┌|∵|┘♪"
+					<address>
+						"© "
+						<time time:datetime="2020-02-24T12:38"> "2020 "
+						<a target="_blank" href="https://t.me/yanch4i"> "Ян Кушілка"
+						" | "
+						<a target="_blank" href="https://t.me/Boguslavv"> "Богуслав Павлишинець"
+			else
+				<main.main>
+					<#background>
+					<#wrapper>
+						<h1> "СЛАВТЕ", <br>, "ГОСПОДА"
+						<button :tap.prevent.toggleSongsMenu()> "СПІВАТИ"
+						<p> "БУШТИНО 2020"
 			<aside style="right: {settings_menu_left}px; box-shadow: 0 0 {(settings_menu_left + 300) / 12}px rgba(0, 0, 0, 0.3);">
 				<.aside_flex style="margin-top: auto;" :tap.prevent.turnHistory()>
 					<svg:svg.helpsvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -311,15 +328,6 @@ tag SongBook
 						<svg:rect x="0" y="0" width="28" height="2">
 						<svg:rect x="0" y="11" width="38" height="2">
 						<svg:rect x="0" y="22" width="18" height="2">
-			<footer>
-				<h1 style="font-size: 32px;">
-					"♪└|∵|┐♪└|∵|┘♪┌|∵|┘♪"
-				<address>
-					"© "
-					<time time:datetime="2020-02-24T12:38"> "2020 "
-					<a target="_blank" href="https://t.me/yanch4i"> "Ян Кушілка"
-					" | "
-					<a target="_blank" href="https://t.me/Boguslavv"> "Павлишинець Богуслав"
 
 			<svg:svg.navigation :tap.prevent.toggleSongsMenu() style="left: 0;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
 				<svg:title> "Пісні"
@@ -345,7 +353,7 @@ tag SongBook
 							<a.song_name style="padding: 12px 8px;" :tap.prevent.getSong(h:song)>
 								h:song
 					else
-						<p css:padding="12px"> "Історія Пуста"
+						<p css:padding="12px"> "Історія пуста"
 
 tag text-as-html < p
 	prop thegiventext default: ""
