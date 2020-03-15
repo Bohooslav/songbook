@@ -1,22 +1,22 @@
 var APP_PREFIX = 'SongBook_' // Identifier for this app (this needs to be consistent across every cache update)
-var VERSION = 'version_05' // Version of the off-line cache (change this value everytime you want to update cache)
+var VERSION = 'version_07' // Version of the off-line cache (change this value everytime you want to update cache)
 var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [ // Add URL you want to cache in this list.
-  '/songbook/', // If you have separate JS/CSS files,
-  '/songbook/index.html', // add path to those files here
-  '/songbook/dist/client.js',
-  '/songbook/dist/index.css',
-  '/songbook/dist/fonts/stylesheet.css',
-  '/songbook/dist/images/39d13a8f6b1750f9f7a63a76f89d436e.jpg',
-  '/songbook/dist/images/spaces_-LSPhP31nsEVE02x38XJ_avatar.png',
-  '/songbook/dist/fonts/RobotoSlab-Regular.woff2',
-  '/songbook/dist/fonts/RobotoSlab-Bold.woff2',
-  '/songbook/dist/fonts/Vollkorn-Regular.woff2',
-  '/songbook/dist/fonts/Montserrat-Regular.woff2',
-  '/songbook/dist/fonts/Vollkorn-Italic.woff2',
-  '/songbook/dist/fonts/Montserrat-Italic.woff2',
-  '/songbook/dist/fonts/Montserrat-Bold.woff2',
-  '/songbook/dist/fonts/Vollkorn-Bold.woff2'
+  '/', // If you have separate JS/CSS files,
+  '/index.html', // add path to those files here
+  '/dist/client.js',
+  '/dist/index.css',
+  '/dist/fonts/stylesheet.css',
+  '/dist/images/39d13a8f6b1750f9f7a63a76f89d436e.jpg',
+  '/dist/images/spaces_-LSPhP31nsEVE02x38XJ_avatar.png',
+  '/dist/fonts/RobotoSlab-Regular.woff2',
+  '/dist/fonts/RobotoSlab-Bold.woff2',
+  '/dist/fonts/Vollkorn-Regular.woff2',
+  '/dist/fonts/Montserrat-Regular.woff2',
+  '/dist/fonts/Vollkorn-Italic.woff2',
+  '/dist/fonts/Montserrat-Italic.woff2',
+  '/dist/fonts/Montserrat-Bold.woff2',
+  '/dist/fonts/Vollkorn-Bold.woff2'
 ]
 
 // Respond with cached resources
