@@ -1,5 +1,5 @@
 var APP_PREFIX = 'SongBook_' // Identifier for this app (this needs to be consistent across every cache update)
-var VERSION = 'version_08' // Version of the off-line cache (change this value everytime you want to update cache)
+var VERSION = 'version_09' // Version of the off-line cache (change this value everytime you want to update cache)
 var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [ // Add URL you want to cache in this list.
   '/', // If you have separate JS/CSS files,
@@ -8,7 +8,6 @@ var URLS = [ // Add URL you want to cache in this list.
   '/dist/index.css',
   '/dist/fonts/stylesheet.css',
   '/dist/images/39d13a8f6b1750f9f7a63a76f89d436e.jpg',
-  '/dist/images/spaces_-LSPhP31nsEVE02x38XJ_avatar.png',
   '/dist/images/green-leaves-plants.jpeg'
 ]
 
