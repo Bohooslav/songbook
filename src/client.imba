@@ -17,10 +17,6 @@ let settings_menu_left = -300
 let show_history
 let fonts = [
 	{
-		name: "Vollkorn CS",
-		code: "'Vollkorn CS', serif"
-	},
-	{
 		name: "Vollkorn",
 		code: "'Vollkorn', serif"
 	},
@@ -253,7 +249,7 @@ tag SongBook
 			<span#top tabindex="0">
 			<nav style="left: {songs_menu_left}px; box-shadow: 0 0 {(songs_menu_left + 300) / 12}px rgba(0, 0, 0, 0.3);">
 				<h1 :tap.prevent.getSong('')> "СЛАВТЕ ГОСПОДА"
-				<input#search[@query] placeholder="Пошук">
+				<input#search[@query] aria-label="Пошук" placeholder="Пошук">
 				<.songs_list>
 					for song in songs when song:name.toLowerCase().indexOf(query.toLowerCase()) >= 0
 						<p.song_name .active_song=song:title==@thesong:title :tap.prevent.getSong(song:title)> song:title
@@ -350,8 +346,9 @@ tag SongBook
 				<article.historylist>
 					if @history:length
 						for h in @history.slice().reverse
-							<a.song_name style="padding: 12px 8px;" :tap.prevent.getSong(h:song)>
-								h:song
+							if h:song
+								<a.song_name style="padding: 12px 8px;" :tap.prevent.getSong(h:song)>
+									h:song
 					else
 						<p css:padding="12px"> "Історія пуста"
 

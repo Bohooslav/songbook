@@ -53,15 +53,6 @@
 }
 
 @font-face {
-    font-family: 'Vollkorn SC';
-    src: local('Vollkorn SC Regular'), local('VollkornSC-Regular'),
-        url('VollkornSC-Regular.woff2') format('woff2'),
-        url('VollkornSC-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Montserrat';
     src: local('Montserrat ExtraBold'), local('Montserrat-ExtraBold'),
         url('Montserrat-ExtraBold.woff2') format('woff2'),
@@ -157,15 +148,6 @@
         url('Vollkorn-Regular.woff2') format('woff2'),
         url('Vollkorn-Regular.woff') format('woff');
     font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Vollkorn SC';
-    src: local('Vollkorn SC Bold'), local('VollkornSC-Bold'),
-        url('VollkornSC-Bold.woff2') format('woff2'),
-        url('VollkornSC-Bold.woff') format('woff');
-    font-weight: bold;
     font-style: normal;
 }
 
@@ -359,24 +341,6 @@
 }
 
 @font-face {
-    font-family: 'Vollkorn SC';
-    src: local('Vollkorn SC SemiBold'), local('VollkornSC-SemiBold'),
-        url('VollkornSC-SemiBold.woff2') format('woff2'),
-        url('VollkornSC-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Vollkorn SC';
-    src: local('Vollkorn SC Black'), local('VollkornSC-Black'),
-        url('VollkornSC-Black.woff2') format('woff2'),
-        url('VollkornSC-Black.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Roboto Slab';
     src: local('Roboto Slab ExtraBold'), local('RobotoSlab-ExtraBold'),
         url('RobotoSlab-ExtraBold.woff2') format('woff2'),
@@ -393,4 +357,3 @@
     font-weight: 100;
     font-style: normal;
 }
-
