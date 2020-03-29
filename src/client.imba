@@ -243,19 +243,58 @@ tag SongBook
 			settings:font:line-height -= 0.2
 		setCookie('line-height', settings:font:line-height)
 
+	def featherSearch feather, haystack
+		feather = feather.toLowerCase()
+		haystack = haystack.toLowerCase()
+		let haystackLength = haystack:length
+		let featherLength = feather:length
+
+		if featherLength > haystackLength
+			return false
+
+		if featherLength is haystackLength
+			return feather is haystack
+
+		let featherLetter = 0
+		while featherLetter < featherLength
+			let haystackLetter = 0
+			let match = false
+			var featherLetterCode = feather.charCodeAt(featherLetter++)
+
+			while haystackLetter < haystackLength
+				if haystack.charCodeAt(haystackLetter++) is featherLetterCode
+					break match = true
+
+			continue if match
+			return false
+		return true
+
+	def filteredSongs
+		let filtered = []
+		for song in songs
+			if featherSearch(@query, song:title)
+				filtered.push(song)
+		return filtered
+
+
+	def boxShadow grade
+		if settings:theme == 'light'
+			return "box-shadow: 0 0 {(grade + 300) / 4}px #0001;"
+		else return ''
+
 
 	def render
 		<self .padding=@thesong:name .hold_by_finger=(inzone || onzone)>
 			<span#top tabindex="0">
-			<nav style="left: {songs_menu_left}px; box-shadow: 0 0 {(songs_menu_left + 300) / 12}px rgba(0, 0, 0, 0.3);">
+			<nav style="left: {songs_menu_left}px; {boxShadow(songs_menu_left)}">
 				<h1 :tap.prevent.getSong('')> "СЛАВТЕ ГОСПОДА"
-				<input#search[@query] aria-label="Пошук" placeholder="Пошук">
 				<.songs_list>
-					for song in songs when song:name.toLowerCase().indexOf(query.toLowerCase()) >= 0
+					for song in filteredSongs()
 						<p.song_name .active_song=song:title==@thesong:title :tap.prevent.getSong(song:title)> song:title
-					if !(songs.filter(do |song| return song:name.toLowerCase().indexOf(query.toLowerCase()) >= 0):length)
+					if !filteredSongs:length
 						<p.song_name style="white-space: pre;"> "(ಠ╭╮ಠ)    ¯\\_(ツ)_/¯   ノ( ゜-゜ノ)"
 					<.freespace>
+				<input#search[@query] aria-label="Пошук" placeholder="Пошук">
 			if @thesong:name
 				<main#main style="font-family: {settings:font:family}; font-size: {settings:font:size}px; line-height: {settings:font:line-height};">
 					<h1> @thesong:name
@@ -286,7 +325,7 @@ tag SongBook
 						<h1> "СЛАВТЕ", <br>, "ГОСПОДА"
 						<button :tap.prevent.toggleSongsMenu()> "СПІВАТИ"
 						<p> "БУШТИНО 2020"
-			<aside style="right: {settings_menu_left}px; box-shadow: 0 0 {(settings_menu_left + 300) / 12}px rgba(0, 0, 0, 0.3);">
+			<aside style="right: {settings_menu_left}px; {boxShadow(settings_menu_left)}">
 				<.aside_flex style="margin-top: auto;" :tap.prevent.turnHistory()>
 					<svg:svg.helpsvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 						<svg:title> "Історія"
