@@ -276,12 +276,10 @@ tag SongBook
 				filtered.push(song)
 		return filtered
 
-
 	def boxShadow grade
 		if settings:theme == 'light'
 			return "box-shadow: 0 0 {(grade + 300) / 4}px #0001;"
 		else return ''
-
 
 	def render
 		<self .padding=@thesong:name .hold_by_finger=(inzone || onzone)>
