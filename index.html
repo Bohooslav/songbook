@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="dist/index.css">
   <link rel="stylesheet" type="text/css" href="dist/fonts/stylesheet.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 minimum-scale=5.0">
   <link rel="icon" type="image/png" href="dist/images/cats_and_notes.png">
   <meta name="description" content="СПІВАЙТЕ ДЛЯ ГОСПОДА">
   <link rel="canonical" href="https://songbook.club" />
@@ -29,6 +29,7 @@
         navigator.serviceWorker.register('sw.js').then(function (registration) {
           // Registration was successful
           console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          registration.update();
         }, function (err) {
           // registration failed :(
           console.log('ServiceWorker registration failed: ', err);
