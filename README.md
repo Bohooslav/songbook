@@ -5,8 +5,8 @@ Tiny songbook
 ## Getting started
 
 ```
-git clone https://github.com/imba/hello-world-imba
-cd hello-world-imba
+git clone https://github.com/Bohooslav/songbook
+cd songbook
 yarn # npm install
 ```
 
