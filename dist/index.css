@@ -149,7 +149,6 @@ nav h1 {
     margin-bottom: 16px;
     margin-right: 12px;
     font-size: 20px;
-    text-align: center;
     cursor: pointer;
 }
 
@@ -157,8 +156,6 @@ nav h1 {
     width: calc(100% - 12px);
     padding: 4px;
     font-size: 20px;
-    /* background: var(--btn-bg);
-    border: 1px solid var(--btn-bg); */
     background: transparent;
     border: none;
     border-radius: 4px;
@@ -357,10 +354,6 @@ aside {
     color: var(--accent-color);
 }
 
-.hold_by_finger aside, .hold_by_finger nav {
-    transition: none;
-}
-
 .freespace {
     min-height: 128px;
 }
@@ -513,4 +506,10 @@ address a:hover {
 .main p {
     margin: 0 auto 16px;
     color: #c2834e;
+}
+
+@media screen and (max-width: 512px) {
+    main h1 {
+        font-size: 1.5em;
+    }
 }

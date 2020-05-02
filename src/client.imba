@@ -1,5 +1,8 @@
 import {songs} from "./songs.imba"
 
+songs.sort(do |a, b|
+	return ('' + a:title).localeCompare(b:title))
+
 let settings = {
 	theme: 'dark',
 	font: {
@@ -9,7 +12,6 @@ let settings = {
 		line-height: 1.6
 	}
 }
-let mobimenu = ''
 let inzone = no
 let onzone = no
 let songs_menu_left = -300
@@ -71,14 +73,10 @@ tag SongBook
 			html:dataset:theme = settings:theme
 		if getCookie('song')
 			getSong(getCookie('song'))
-		if getCookie('font')
-			settings:font:size = parseInt(getCookie('font'))
-		if getCookie('font-family')
-			settings:font:family = getCookie('font-family')
-		if getCookie('font-name')
-			settings:font:name = getCookie('font-name')
-		if getCookie('line-height')
-			settings:font:line-height = parseFloat(getCookie('line-height'))
+		settings:font:size = parseInt(getCookie('font')) || settings:font:size
+		settings:font:family = getCookie('font-family') || settings:font:family
+		settings:font:name = getCookie('font-name') || settings:font:name
+		settings:font:line-height = parseFloat(getCookie('line-height')) || settings:font:line-height
 
 
 	def getCookie c_name
@@ -88,78 +86,60 @@ tag SongBook
 		window:localStorage.setItem(c_name, value)
 
 	def onmousemove e
-		if window:innerWidth > 600
+		if window:innerWidth > 1024
 			if e.x < 32
 				songs_menu_left = 0
-				mobimenu = 'show_songs'
 			elif e.x > window:innerWidth - 32
 				settings_menu_left = 0
-				mobimenu = 'show_settings'
 			elif 300 < e.x < window:innerWidth - 300
 				songs_menu_left = -300
 				settings_menu_left = -300
-				mobimenu = ''
 
 	def toggleSongsMenu
 		if songs_menu_left
 			songs_menu_left = 0
 			settings_menu_left = -300
-			mobimenu = 'show_songs'
 		else
 			songs_menu_left = -300
-			mobimenu = ''
 
 	def toggleSettingsMenu
 		if settings_menu_left
 			settings_menu_left = 0
 			songs_menu_left = -300
-			mobimenu = 'show_settings'
 		else
 			settings_menu_left = -300
-			mobimenu = ''
 
 	def ontouchstart touch
 		if touch.x < 32 || touch.x > window:innerWidth - 32
-			inzone = true
-		elif mobimenu
-			onzone = true
+			inzone = yes
+		elif songs_menu_left > -300 || settings_menu_left > -300
+			onzone = yes
 		self
 
 	def ontouchupdate touch
 		if inzone
-			if (songs_menu_left < 0 && touch.dx < 300) && mobimenu != 'show_settings'
+			if songs_menu_left < 0 && touch.dx > 0
 				songs_menu_left = touch.dx - 300
-			if (settings_menu_left < 0 && touch.dx > -300) && mobimenu != 'show_songs'
-				settings_menu_left = - 300 - touch.dx
+			if settings_menu_left < 0 && touch.dx < 0
+				settings_menu_left = - touch.dx - 300
 		else
-			if mobimenu == 'show_songs' && touch.dx < 0
+			if songs_menu_left > -300 && touch.dx < 0
 				songs_menu_left = touch.dx
-			if mobimenu == 'show_settings' && touch.dx > 0
+			if settings_menu_left > -300 && touch.dx > 0
 				settings_menu_left = - touch.dx
 		Imba.commit
 
 	def ontouchend touch
-		if inzone && mobimenu == ''
-			if touch.dx > 64 && mobimenu != 'show_settings'
-				songs_menu_left = 0
-				mobimenu = 'show_songs'
-			elif touch.dx < -64 && mobimenu != 'show_songs'
-				settings_menu_left = 0
-				mobimenu = 'show_settings'
+		if songs_menu_left > -300
+			if inzone
+				touch.dx > 64 ? songs_menu_left = 0 : songs_menu_left = -300
 			else
-				settings_menu_left = -300
-				songs_menu_left = -300
-				mobimenu = ''
-		elif mobimenu == 'show_songs'
-			if touch.dx < -64
-				songs_menu_left = -300
-				mobimenu = ''
-			else songs_menu_left = 0
-		elif mobimenu == 'show_settings'
-			if touch.dx > 64
-				settings_menu_left = -300
-				mobimenu = ''
-			else settings_menu_left = 0
+				touch.dx < -64 ? songs_menu_left = -300 : songs_menu_left = 0
+		elif settings_menu_left > -300
+			if inzone
+				touch.dx < -64 ? settings_menu_left = 0 : settings_menu_left = -300
+			else
+				touch.dx > 64 ? settings_menu_left = -300 : settings_menu_left = 0
 		inzone = no
 		onzone = no
 		Imba.commit
@@ -186,7 +166,6 @@ tag SongBook
 		saveHistory(@thesong:title)
 		settings_menu_left = -300
 		songs_menu_left = -300
-		mobimenu = ''
 		@query = ''
 		show_history = no
 
@@ -201,7 +180,6 @@ tag SongBook
 	def turnHistory
 		show_history = !show_history
 		settings_menu_left = -300
-		mobimenu = ''
 
 	def clearHistory
 		turnHistory
@@ -282,9 +260,9 @@ tag SongBook
 		else return ''
 
 	def render
-		<self .padding=@thesong:name .hold_by_finger=(inzone || onzone)>
+		<self .padding=@thesong:name>
 			<span#top tabindex="0">
-			<nav style="left: {songs_menu_left}px; {boxShadow(songs_menu_left)}">
+			<nav style="left: {songs_menu_left}px; {boxShadow(songs_menu_left)} {songs_menu_left > - 300 && (inzone || onzone) ? 'transition: none;will-change: left;' : ''}">
 				<h1 :tap.prevent.getSong('')> "СЛАВТЕ ГОСПОДА"
 				<.songs_list>
 					for song in filteredSongs()
@@ -295,7 +273,7 @@ tag SongBook
 				<input#search[@query] aria-label="Пошук" placeholder="Пошук">
 			if @thesong:name
 				<main#main style="font-family: {settings:font:family}; font-size: {settings:font:size}px; line-height: {settings:font:line-height};">
-					<h1> @thesong:name
+					<h1> <header-as-html[{html: @thesong:name}]> 
 					<text-as-html[@thesong]>
 					<.arrows>
 						<a.arrow :tap.prevent.slideSong(-1) title="Попередня">
@@ -323,7 +301,7 @@ tag SongBook
 						<h1> "СЛАВТЕ", <br>, "ГОСПОДА"
 						<button :tap.prevent.toggleSongsMenu()> "СПІВАТИ"
 						<p> "БУШТИНО 2020"
-			<aside style="right: {settings_menu_left}px; {boxShadow(settings_menu_left)}">
+			<aside style="right: {settings_menu_left}px; {boxShadow(settings_menu_left)}{settings_menu_left > - 300 && (inzone || onzone) ? 'transition: none;will-change: right;' : ''}">
 				<.aside_flex style="margin-top: auto;" :tap.prevent.turnHistory()>
 					<svg:svg.helpsvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 						<svg:title> "Історія"
@@ -390,6 +368,23 @@ tag SongBook
 						<p css:padding="12px"> "Історія пуста"
 
 tag text-as-html < p
+	prop thegiventext default: ""
+
+	def mount
+		schedule(events: yes)
+		dom:innerHTML = @data:html
+		@thegiventext = @data:html
+
+	def tick
+		if @data:html != @thegiventext
+			dom:innerHTML = @data:html
+			@thegiventext = @data:html
+			render
+
+	def render
+		<self>
+
+tag header-as-html < span
 	prop thegiventext default: ""
 
 	def mount
