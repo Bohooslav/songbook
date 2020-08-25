@@ -267,6 +267,9 @@ tag SongBook
 			return "box-shadow: 0 0 {(grade + 300) / 4}px #0001;"
 		else return ''
 
+	def install
+		deferredPrompt.prompt()
+
 	def render
 		<self .padding=@thesong:name>
 			<span#top tabindex="0">
@@ -311,12 +314,12 @@ tag SongBook
 						<p> "БУШТИНО 2020"
 			<aside style="right: {settings_menu_left}px; {boxShadow(settings_menu_left)}{settings_menu_left > - 300 && (inzone || onzone) ? 'transition: none;will-change: right;' : ''}">
 				if addBtn
-					<.aside_flex style="margin-top: auto;" :tap.prevent.deferredPrompt.prompt()>
+					<.aside_flex style="margin-top: auto;" :tap.prevent.install()>
 						<svg:svg.helpsvg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
 							<svg:title> "Встановити"
 							<svg:path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z">
 						"Встановити"
-				<.aside_flex style="margin-top: auto;" :tap.prevent.turnHistory()>
+				<.aside_flex :tap.prevent.turnHistory()>
 					<svg:svg.helpsvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 						<svg:title> "Історія"
 						<svg:path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z">
