@@ -63,8 +63,8 @@ tag SongBook
 	prop thesong default: {}
 	prop show_fonts default: no
 	prop history default: []
-	addBtn default: no
-	deferredPrompt
+	prop addBtn default: no
+	prop deferredPrompt
 
 	def build
 		if getCookie('theme')
