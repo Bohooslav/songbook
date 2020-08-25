@@ -150,6 +150,7 @@ nav h1 {
     margin-right: 12px;
     font-size: 20px;
     cursor: pointer;
+    text-align: center;
 }
 
 #search {
@@ -386,7 +387,7 @@ address a:hover {
     width: 32px;
     height: 32px;
     margin: 3vw;
-    fill: var(--btn-bg-hover);
+    fill: var(--accent-color);
     position: absolute;
     z-index: 1;
     cursor: pointer;

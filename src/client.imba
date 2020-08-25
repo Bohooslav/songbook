@@ -44,6 +44,7 @@ let fonts = [
 	},
 ]
 
+
 document:onkeyup = do |e|
 	var e = e || window:event
 	if document.getElementById("search") != document:activeElement
@@ -62,6 +63,8 @@ tag SongBook
 	prop thesong default: {}
 	prop show_fonts default: no
 	prop history default: []
+	addBtn default: no
+	deferredPrompt
 
 	def build
 		if getCookie('theme')
@@ -77,6 +80,13 @@ tag SongBook
 		settings:font:family = getCookie('font-family') || settings:font:family
 		settings:font:name = getCookie('font-name') || settings:font:name
 		settings:font:line-height = parseFloat(getCookie('line-height')) || settings:font:line-height
+
+		window.addEventListener('beforeinstallprompt', do |e|
+			e.preventDefault()
+			deferredPrompt = e
+			addBtn = yes
+			Imba.commit()
+		)
 
 
 	def getCookie c_name
@@ -150,8 +160,7 @@ tag SongBook
 			@thesong = songs[index_of_current_song + value]
 			setCookie('song', @thesong:title)
 			saveHistory(@thesong:title)
-			if document.getElementById('top')
-				document.getElementById('top').focus()
+			setTimeout(&, 200) do window.scroll(0,0)
 			Imba.commit()
 
 	def getSong songtitle
@@ -161,8 +170,7 @@ tag SongBook
 		else
 			@thesong = {name: ''}
 		setCookie('song', @thesong:title)
-		if document.getElementById('top')
-			document.getElementById('top').focus()
+		setTimeout(&, 200) do window.scroll(0,0)
 		saveHistory(@thesong:title)
 		settings_menu_left = -300
 		songs_menu_left = -300
@@ -302,10 +310,15 @@ tag SongBook
 						<button :tap.prevent.toggleSongsMenu()> "СПІВАТИ"
 						<p> "БУШТИНО 2020"
 			<aside style="right: {settings_menu_left}px; {boxShadow(settings_menu_left)}{settings_menu_left > - 300 && (inzone || onzone) ? 'transition: none;will-change: right;' : ''}">
+				if addBtn
+					<.aside_flex style="margin-top: auto;" :tap.prevent.deferredPrompt.prompt()>
+						<svg:svg.helpsvg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+							<svg:title> "Встановити"
+							<svg:path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z">
+						"Встановити"
 				<.aside_flex style="margin-top: auto;" :tap.prevent.turnHistory()>
 					<svg:svg.helpsvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 						<svg:title> "Історія"
-						<svg:path d="M0 0h24v24H0z" fill="none">
 						<svg:path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z">
 					"Історія"
 				<.aside_flex :tap.prevent=(do @show_fonts = !@show_fonts)>
