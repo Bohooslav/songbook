@@ -16,6 +16,7 @@ let inzone = no
 let onzone = no
 let songs_menu_left = -300
 let settings_menu_left = -300
+let menu_icons_transform = 0
 let show_history
 let fonts = [
 	{
@@ -88,6 +89,28 @@ tag SongBook
 			Imba.commit()
 		)
 
+	def mount
+		let scroll_timeStamp = 9999999999
+		let last_known_scroll_position = 0
+
+		window:onscroll = do |e|
+			if e:timeStamp < scroll_timeStamp 
+				scroll_timeStamp = e:timeStamp
+				last_known_scroll_position = window:scrollY
+
+			window.clearTimeout window:isScrolling
+
+			window:isScrolling = setTimeout(&, 100) do
+				if window:scrollY < last_known_scroll_position || not window:scrollY
+					menu_icons_transform = 0
+				elif window:scrollY > last_known_scroll_position
+					if window:innerWidth > 1024
+						menu_icons_transform = -100
+					else
+						menu_icons_transform = 100
+
+				scroll_timeStamp = 9999999999
+				Imba.commit()
 
 	def getCookie c_name
 		window:localStorage.getItem(c_name)
@@ -101,7 +124,7 @@ tag SongBook
 				songs_menu_left = 0
 			elif e.x > window:innerWidth - 32
 				settings_menu_left = 0
-			elif 300 < e.x < window:innerWidth - 300
+			elif 300 < e.x < window:innerWidth - 300 && @thesong:name
 				songs_menu_left = -300
 				settings_menu_left = -300
 
@@ -176,6 +199,7 @@ tag SongBook
 		songs_menu_left = -300
 		@query = ''
 		show_history = no
+		focus()
 
 	def saveHistory song_name
 		if getCookie("history")
@@ -297,13 +321,13 @@ tag SongBook
 								<svg:polygon points="4,3 1,0 0,1 4,5 8,1 7,0">
 
 				<footer>
-					<h1 style="font-size: 32px;">
+					<p style="font-size: 8vw;font-size: max(24px, min(8vw, 32px))">
 						"♪└|∵|┐♪└|∵|┘♪┌|∵|┘♪"
 					<address>
 						"© "
-						<time time:datetime="2020-02-24T12:38"> "2020 "
+						<time time:datetime="2020-02-24T12:38"> "2021 "
 						<a target="_blank" href="https://t.me/yanch4i"> "Ян Кушілка"
-						" | "
+						" · "
 						<a target="_blank" href="https://t.me/Boguslavv"> "Богуслав Павлишинець"
 			else
 				<main.main>
@@ -319,7 +343,7 @@ tag SongBook
 							<svg:title> "Встановити"
 							<svg:path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z">
 						"Встановити"
-				<.aside_flex :tap.prevent.turnHistory()>
+				<.aside_flex :tap.prevent.turnHistory() style="margin-top: {addBtn ? '0' : 'auto'};">
 					<svg:svg.helpsvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 						<svg:title> "Історія"
 						<svg:path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z">
@@ -356,14 +380,20 @@ tag SongBook
 						<svg:rect x="0" y="11" width="38" height="2">
 						<svg:rect x="0" y="22" width="18" height="2">
 
-			<svg:svg.navigation :tap.prevent.toggleSongsMenu() style="left: 0;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-				<svg:title> "Пісні"
-				<svg:path d="M3 5H7V6H3V5ZM3 8H7V7H3V8ZM3 10H7V9H3V10ZM14 5H10V6H14V5ZM14 7H10V8H14V7ZM14 9H10V10H14V9ZM16 3V12C16 12.55 15.55 13 15 13H9.5L8.5 14L7.5 13H2C1.45 13 1 12.55 1 12V3C1 2.45 1.45 2 2 2H7.5L8.5 3L9.5 2H15C15.55 2 16 2.45 16 3ZM8 3.5L7.5 3H2V12H8V3.5ZM15 3H9.5L9 3.5V12H15V3Z">
-			<svg:svg.navigation :tap.prevent.toggleSettingsMenu() style="right: 0;" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24">
-				<svg:title> "Налаштування"
-				<svg:g>
-					<svg:path d="M0,0h24v24H0V0z" fill="none">
-					<svg:path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z">
+			if @thesong:name
+				<section#navigation>
+					<div style="left:0;transform: translateY({menu_icons_transform}%)" :tap.prevent.toggleSongsMenu()>
+						<svg:svg style="left: 0;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+							<svg:title> "Пісні"
+							<svg:path d="M3 5H7V6H3V5ZM3 8H7V7H3V8ZM3 10H7V9H3V10ZM14 5H10V6H14V5ZM14 7H10V8H14V7ZM14 9H10V10H14V9ZM16 3V12C16 12.55 15.55 13 15 13H9.5L8.5 14L7.5 13H2C1.45 13 1 12.55 1 12V3C1 2.45 1.45 2 2 2H7.5L8.5 3L9.5 2H15C15.55 2 16 2.45 16 3ZM8 3.5L7.5 3H2V12H8V3.5ZM15 3H9.5L9 3.5V12H15V3Z">
+						<p> "Пісні"
+					<div style="right:0;transform: translateY({menu_icons_transform}%)" :tap.prevent.toggleSettingsMenu()>
+						<svg:svg style="right: 0;" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24">
+							<svg:title> "Налаштування"
+							<svg:g>
+								<svg:path d="M0,0h24v24H0V0z" fill="none">
+								<svg:path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z">
+						<p> "Інше"
 
 			<section.history .show_history=show_history>
 				<.history_hat css:margin="0">

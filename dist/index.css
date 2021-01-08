@@ -117,6 +117,7 @@ h1, main, ._text-as-html {
 
 .padding {
     padding: 4vw 3vw;
+    padding-bottom: calc(54px + 4vw);
 }
 
 nav, aside {
@@ -382,21 +383,6 @@ address a:hover {
     color: #88f;
 }
 
-.navigation {
-    top: 0;
-    width: 32px;
-    height: 32px;
-    margin: 3vw;
-    fill: var(--accent-color);
-    position: absolute;
-    z-index: 1;
-    cursor: pointer;
-}
-
-.navigation:hover {
-    fill: var(--accent-hover-color);
-}
-
 .history {
     position: fixed;
     bottom: -100%;
@@ -513,4 +499,77 @@ address a:hover {
     main h1 {
         font-size: 1.5em;
     }
+}
+#navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  height: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+#navigation > div {
+  padding: 3vw;
+  width: calc(32px + 6vw);
+  height: calc(32px + 6vw);
+}
+
+#navigation svg {
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+  fill: var(--accent-color);
+}
+
+#navigation div:hover {
+  color: var(--accent-hover-color);
+}
+
+#navigation div:hover svg {
+  fill: var(--accent-hover-color);
+}
+
+#navigation p {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  #navigation {
+    bottom: 0;
+    top: auto;
+  }
+
+  #navigation > div {
+    width: 50%;
+    bottom: 0;
+    padding: 4px;
+    height: 54px;
+    position: absolute;
+    flex-direction: column;
+    background-color: var(--background-color);
+    border-top: 1px solid var(--btn-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #navigation svg {
+    fill: var(--text-color);
+    opacity: 0.75;
+  }
+
+  #navigation svg:hover {
+    opacity: 1;
+  }
+
+  #navigation p {
+    display: inline-block;
+    padding: 0 8px;
+    opacity: 0.75;
+    font-size: 12px;
+  }
 }

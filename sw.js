@@ -1,15 +1,16 @@
 var APP_PREFIX = 'SongBook_' // Identifier for this app (this needs to be consistent across every cache update)
-var VERSION = 'version_24' // Version of the off-line cache (change this value everytime you want to update cache)
+var VERSION = 'version_25' // Version of the off-line cache (change this value everytime you want to update cache)
 var CACHE_NAME = APP_PREFIX + VERSION
-var URLS = [ // Add URL you want to cache in this list.
-  '/', // If you have separate JS/CSS files,
-  '/index.html', // add path to those files here
-  '/dist/client.js',
-  '/dist/index.css',
-  '/dist/fonts/stylesheet.css',
-  '/dist/images/cats_and_notes.png',
-  '/dist/images/green-leaves-plants.jpeg'
-]
+var URLS = [
+  // Add URL you want to cache in this list.
+  "/", // If you have separate JS/CSS files,
+  "/index.html", // add path to those files here
+  "/dist/client.js",
+  "/dist/index.css",
+  "/dist/fonts/stylesheet.css",
+  "/dist/images/cats_and_notes.png",
+  "/dist/images/green-leaves-plants.jpeg",
+];
 
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
