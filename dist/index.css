@@ -1,8 +1,8 @@
 html[data-theme='dark'] {
     --background-color: #04060c;
     --text-color: #fee;
-    --accent-color: olivedrab;
-    --accent-hover-color: yellowgreen;
+    --accent-color: rgb(152, 77, 165);
+    --accent-hover-color: rgba(177, 113, 188, 0.996);
     --btn-bg: #88f2;
     --btn-bg-hover: #88f4;
 }
