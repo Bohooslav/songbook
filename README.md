@@ -29,6 +29,7 @@ yarn run dev # npm run dev
 [0]: https://github.com/css-modules/css-modules
 [1]: https://github.com/imba/hello-world-imba/generate
 
-### before deploy:
+### Before deploy:
  * update the version of servise worker (sw.js)
  * run `npm run build` to minimize the `client.js` and prepare it for the deploy.
+ * Commit changes & push.
