@@ -524,8 +524,8 @@ tag app
 			<aside @touchstart=slidestart @touchend=closedrawersend @touchcancel=closedrawersend @touchmove=closingdrawer style="right:{stiingsMenuRight!}px;{boxShadow(settings_menu_left)}{(onzone || inzone) ? 'transition:none;' : ''}">
 				<[m:auto]>
 				if available_for_install
-					<button[d:flex ai:center bg:transparent] @click=install>
-						<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+					<button.btnbox[d:flex ai:center font:inherit c:inherit @hover:$accent-hover-color bg:transparent bd:none fill:$text-color @hover:$accent-hover-color cursor:pointer] @click=install>
+						<svg[size:32px fill:inherit mr:12px] xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
 							<title> "Встановити"
 							<path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z">
 						"Встановити"
@@ -579,18 +579,18 @@ tag app
 					<p.checkbox> <span>
 
 				<footer[ta:center mt:32px]>
-					<p[fs:28px]>
+					<p[fs:24px]>
 						"♪└|∵|┐♪└|∵|┘♪┌|∵|┘♪"
 					<address[fs:12px mt:16px c:gray]>
 						"© "
 						<time time.datetime="2020-02-24T12:38"> "2021 "
-						<a target="_blank" href="https://t.me/yanch4i"> "Ян Кушілка"
+						<a target="_blank" rel="noreferrer" href="https://t.me/yanch4i"> "Ян Кушілка"
 						" · "
-						<a target="_blank" href="https://t.me/Boguslavv"> "Богуслав Павлишинець"
+						<a target="_blank" rel="noreferrer" href="https://t.me/Boguslavv"> "Богуслав Павлишинець"
 						" · "
-						<a target="_blank" href="https://t.me/Tymkoo"> "Віталій Тимко"
+						<a target="_blank" rel="noreferrer" href="https://t.me/Tymkoo"> "Віталій Тимко"
 						" · "
-						<a target="_blank" [ws:pre] href="https://send.monobank.ua/6ao79u5rFZ"> "🔥 Пожертвувати 🐈"
+						<a target="_blank" rel="noreferrer" [ws:pre] href="https://send.monobank.ua/6ao79u5rFZ"> "🔥 Пожертвувати 🐈"
 
 
 		unless current_song_index < 0

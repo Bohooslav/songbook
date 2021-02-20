@@ -325,10 +325,10 @@
     ],
     [
       "$$38$$",
-      2877
+      2901
     ]
   ],
-  "bytes": 3106,
+  "bytes": 3130,
   "source": "$$38$$",
   "_": "output",
   "path": "public/index.html",
@@ -337,21 +337,21 @@
     "$$36$$",
     "$$37$$"
   ],
-  "hash": "PFYKE8OL",
+  "hash": "MAB9GQYO",
   "originalPath": "public/app/index.__dist__.html"
 },
 "$$33$$":{
   "imports": [],
   "exports": [],
   "inputs": [],
-  "bytes": 392399,
+  "bytes": 392676,
   "source": "$$39$$",
   "_": "output",
-  "path": "public/__assets__/app/client.VVLL0O4C.js.map",
-  "url": "/__assets__/app/client.VVLL0O4C.js.map",
+  "path": "public/__assets__/app/client.js.map",
+  "url": "/__assets__/app/client.js.map",
   "type": "map",
   "dependencies": [],
-  "hash": "VVLL0O4C",
+  "hash": "B9RD7ZD7",
   "originalPath": "public/__assets__/app/client.__dist__.js.map"
 },
 "$$34$$":{
@@ -428,19 +428,19 @@
     ],
     [
       "$$39$$",
-      24530
+      24637
     ]
   ],
-  "bytes": 279884,
+  "bytes": 279991,
   "source": "$$39$$",
   "css": "$$57$$",
   "map": "$$33$$",
   "_": "output",
-  "path": "public/__assets__/app/client.VVLL0O4C.js",
-  "url": "/__assets__/app/client.VVLL0O4C.js",
+  "path": "public/__assets__/app/client.js",
+  "url": "/__assets__/app/client.js?v=B9RD7ZD7",
   "type": "js",
   "dependencies": [],
-  "hash": "VVLL0O4C",
+  "hash": "B9RD7ZD7",
   "originalPath": "public/__assets__/app/client.__dist__.js"
 },
 "$$35$$":{
@@ -448,7 +448,7 @@
   "inputs": [
     [
       "$$58$$",
-      5506
+      5775
     ],
     [
       "$$59$$",
@@ -459,14 +459,14 @@
       1605
     ]
   ],
-  "bytes": 8418,
+  "bytes": 8687,
   "source": "$$61$$",
   "_": "output",
-  "path": "public/__assets__/app/client.VAWENGFN.css",
-  "url": "/__assets__/app/client.VAWENGFN.css",
+  "path": "public/__assets__/app/client.css",
+  "url": "/__assets__/app/client.css?v=YAHSFZ89",
   "type": "css",
   "dependencies": [],
-  "hash": "VAWENGFN",
+  "hash": "YAHSFZ89",
   "originalPath": "public/__assets__/app/client.__dist__.css"
 },
 "$$36$$":{
@@ -484,7 +484,7 @@
   "asset": "$$34$$"
 },
 "$$38$$":{
-  "bytes": 2356,
+  "bytes": 2380,
   "imports": [
     "$$36$$",
     "$$37$$"
@@ -494,7 +494,7 @@
   "js": "$$32$$"
 },
 "$$39$$":{
-  "bytes": 97644,
+  "bytes": 98235,
   "imports": [
     "$$51$$",
     "$$62$$",
@@ -630,7 +630,7 @@
   "path": "app/songs.imba"
 },
 "$$56$$":{
-  "bytes": 6223,
+  "bytes": 6521,
   "imports": [],
   "_": "input",
   "path": "styles:app/client.imba"
@@ -640,7 +640,7 @@
   "inputs": [
     [
       "$$56$$",
-      5506
+      5775
     ],
     [
       "$$52$$",
@@ -651,18 +651,18 @@
       1605
     ]
   ],
-  "bytes": 8418,
+  "bytes": 8687,
   "source": "$$39$$",
   "_": "output",
-  "path": "public/__assets__/app/client.VAWENGFN.css",
-  "url": "/__assets__/app/client.VAWENGFN.css",
+  "path": "public/__assets__/app/client.css",
+  "url": "/__assets__/app/client.css?v=YAHSFZ89",
   "type": "css",
   "dependencies": [],
-  "hash": "VAWENGFN",
+  "hash": "YAHSFZ89",
   "originalPath": "public/__assets__/app/client.__dist__.css"
 },
 "$$58$$":{
-  "bytes": 6223,
+  "bytes": 6521,
   "imports": [],
   "_": "input",
   "path": "styles:app/client.imba"
@@ -680,7 +680,7 @@
   "path": "styles:app/song.imba"
 },
 "$$61$$":{
-  "bytes": 97644,
+  "bytes": 98235,
   "imports": [
     "$$64$$",
     "$$65$$",
@@ -892,14 +892,14 @@
   "outputs": {
     "server.js": "$$31$$",
     "public/index.html": "$$32$$",
-    "public/__assets__/app/client.VVLL0O4C.js.map": "$$33$$",
-    "public/__assets__/app/client.VVLL0O4C.js": "$$34$$",
-    "public/__assets__/app/client.VAWENGFN.css": "$$35$$"
+    "public/__assets__/app/client.js.map": "$$33$$",
+    "public/__assets__/app/client.js": "$$34$$",
+    "public/__assets__/app/client.css": "$$35$$"
   },
   "urls": {
-    "/__assets__/app/client.VVLL0O4C.js.map": "$$33$$",
-    "/__assets__/app/client.VVLL0O4C.js": "$$34$$",
-    "/__assets__/app/client.VAWENGFN.css": "$$35$$"
+    "/__assets__/app/client.js.map": "$$33$$",
+    "/__assets__/app/client.js?v=B9RD7ZD7": "$$34$$",
+    "/__assets__/app/client.css?v=YAHSFZ89": "$$35$$"
   },
   "main": "$$31$$",
   "assets": [
@@ -912,5 +912,5 @@
   "path": "server.js.manifest",
   "srcdir": "../..",
   "outdir": "..",
-  "hash": "LWV5PHWW"
+  "hash": "4G8QDLUQ"
 }
