@@ -6,15 +6,15 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "imba": "^2.0.0-alpha.123"
+    "imba": "^2.0.0-alpha.127"
   },
   "devDependencies": {
-    "@types/node": "^14.14.22"
+    "@types/node": "^14.14.31"
   },
-  "repository": "Bohooslav/bohuslavBohooslav.github.io",
+  "repository": "Bohooslav/songbook",
   "description": "my personal website, but a songbook for a local church",
   "version": "1.0.0",
-  "homepage": "https://github.com/Bohooslav/bohuslavBohooslav.github.io",
+  "homepage": "https://github.com/Bohooslav/songbook",
   "author": "Bohuslav (https://github.com/Bohooslav)",
   "license": "ISC"
 }

@@ -89,7 +89,7 @@
   "path": "node_modules/imba/src/imba/dom/component.imba"
 },
 "$$12$$":{
-  "bytes": 10780,
+  "bytes": 28621,
   "imports": [
     "$$9$$"
   ],
@@ -103,7 +103,7 @@
   "path": "node_modules/imba/src/imba/dom/context.imba"
 },
 "$$14$$":{
-  "bytes": 2022,
+  "bytes": 3094,
   "imports": [
     "$$13$$",
     "$$1$$"
@@ -121,7 +121,7 @@
   "path": "node_modules/imba/src/imba/dom/bind.imba"
 },
 "$$16$$":{
-  "bytes": 28384,
+  "bytes": 27954,
   "imports": [
     "$$9$$",
     "$$0$$",
@@ -131,7 +131,7 @@
   "path": "node_modules/imba/src/imba/events/core.imba"
 },
 "$$17$$":{
-  "bytes": 9371,
+  "bytes": 9632,
   "imports": [
     "$$9$$"
   ],
@@ -139,7 +139,7 @@
   "path": "node_modules/imba/src/imba/events/intersect.imba"
 },
 "$$18$$":{
-  "bytes": 31998,
+  "bytes": 41190,
   "imports": [
     "$$9$$",
     "$$0$$"
@@ -148,7 +148,7 @@
   "path": "node_modules/imba/src/imba/events/pointer.imba"
 },
 "$$19$$":{
-  "bytes": 3252,
+  "bytes": 3510,
   "imports": [
     "$$9$$"
   ],
@@ -156,7 +156,7 @@
   "path": "node_modules/imba/src/imba/events/resize.imba"
 },
 "$$20$$":{
-  "bytes": 2896,
+  "bytes": 3157,
   "imports": [
     "$$9$$"
   ],
@@ -297,7 +297,7 @@
       40
     ]
   ],
-  "bytes": 23065,
+  "bytes": 23063,
   "source": "$$30$$",
   "_": "output",
   "path": "server.js",
@@ -305,7 +305,7 @@
   "dependencies": [
     "$$29$$"
   ],
-  "hash": "7DGPGPRP",
+  "hash": "JEOX6RJY",
   "originalPath": "server.__dist__.js"
 },
 "$$32$$":{
@@ -337,151 +337,151 @@
     "$$36$$",
     "$$37$$"
   ],
-  "hash": "MAB9GQYO",
+  "hash": "FQU3LEJU",
   "originalPath": "public/app/index.__dist__.html"
 },
 "$$33$$":{
   "imports": [],
+  "inputs": [
+    [
+      "$$39$$",
+      5775
+    ],
+    [
+      "$$40$$",
+      1344
+    ],
+    [
+      "$$41$$",
+      1608
+    ]
+  ],
+  "bytes": 8728,
+  "source": "$$42$$",
+  "_": "output",
+  "path": "public/__assets__/app/client.css",
+  "url": "/__assets__/app/client.css?v=CLHVEKYP",
+  "type": "css",
+  "dependencies": [],
+  "hash": "CLHVEKYP",
+  "originalPath": "public/__assets__/app/client.__dist__.css"
+},
+"$$34$$":{
+  "imports": [],
   "exports": [],
   "inputs": [],
-  "bytes": 392676,
-  "source": "$$39$$",
+  "bytes": 401360,
+  "source": "$$42$$",
   "_": "output",
   "path": "public/__assets__/app/client.js.map",
   "url": "/__assets__/app/client.js.map",
   "type": "map",
   "dependencies": [],
-  "hash": "B9RD7ZD7",
+  "hash": "LGYR8AFD",
   "originalPath": "public/__assets__/app/client.__dist__.js.map"
 },
-"$$34$$":{
+"$$35$$":{
   "imports": [],
   "exports": [],
   "inputs": [
     [
-      "$$40$$",
+      "$$43$$",
       939
     ],
     [
-      "$$41$$",
-      3140
-    ],
-    [
-      "$$42$$",
-      757
-    ],
-    [
-      "$$43$$",
-      6794
-    ],
-    [
       "$$44$$",
-      2430
+      3136
     ],
     [
       "$$45$$",
-      4061
+      757
     ],
     [
       "$$46$$",
-      1683
+      6808
     ],
     [
       "$$47$$",
-      22
+      2430
     ],
     [
       "$$48$$",
-      198
+      4061
     ],
     [
       "$$49$$",
-      3970
+      4672
     ],
     [
       "$$50$$",
-      4461
+      22
     ],
     [
       "$$51$$",
-      0
+      253
     ],
     [
       "$$52$$",
-      0
+      3970
     ],
     [
       "$$53$$",
-      0
+      4400
     ],
     [
       "$$54$$",
-      3647
-    ],
-    [
-      "$$55$$",
-      223196
-    ],
-    [
-      "$$56$$",
       0
     ],
     [
+      "$$40$$",
+      0
+    ],
+    [
+      "$$41$$",
+      0
+    ],
+    [
+      "$$55$$",
+      3647
+    ],
+    [
+      "$$56$$",
+      223196
+    ],
+    [
       "$$39$$",
+      0
+    ],
+    [
+      "$$42$$",
       24637
     ]
   ],
-  "bytes": 279991,
-  "source": "$$39$$",
-  "css": "$$57$$",
-  "map": "$$33$$",
+  "bytes": 282984,
+  "source": "$$42$$",
+  "css": "$$33$$",
+  "map": "$$34$$",
   "_": "output",
   "path": "public/__assets__/app/client.js",
-  "url": "/__assets__/app/client.js?v=B9RD7ZD7",
+  "url": "/__assets__/app/client.js?v=LGYR8AFD",
   "type": "js",
   "dependencies": [],
-  "hash": "B9RD7ZD7",
+  "hash": "LGYR8AFD",
   "originalPath": "public/__assets__/app/client.__dist__.js"
-},
-"$$35$$":{
-  "imports": [],
-  "inputs": [
-    [
-      "$$58$$",
-      5775
-    ],
-    [
-      "$$59$$",
-      1306
-    ],
-    [
-      "$$60$$",
-      1605
-    ]
-  ],
-  "bytes": 8687,
-  "source": "$$61$$",
-  "_": "output",
-  "path": "public/__assets__/app/client.css",
-  "url": "/__assets__/app/client.css?v=YAHSFZ89",
-  "type": "css",
-  "dependencies": [],
-  "hash": "YAHSFZ89",
-  "originalPath": "public/__assets__/app/client.__dist__.css"
 },
 "$$36$$":{
   "bytes": 28,
   "imports": [],
   "_": "input",
   "path": "entry:app/client.imba?as=css",
-  "asset": "$$35$$"
+  "asset": "$$57$$"
 },
 "$$37$$":{
   "bytes": 28,
   "imports": [],
   "_": "input",
   "path": "entry:app/client.imba?as=web",
-  "asset": "$$34$$"
+  "asset": "$$35$$"
 },
 "$$38$$":{
   "bytes": 2380,
@@ -494,326 +494,326 @@
   "js": "$$32$$"
 },
 "$$39$$":{
+  "bytes": 6521,
+  "imports": [],
+  "_": "input",
+  "path": "styles:app/client.imba"
+},
+"$$40$$":{
+  "bytes": 1470,
+  "imports": [],
+  "_": "input",
+  "path": "styles:app/global_styles.imba"
+},
+"$$41$$":{
+  "bytes": 1800,
+  "imports": [],
+  "_": "input",
+  "path": "styles:app/song.imba"
+},
+"$$42$$":{
   "bytes": 98235,
   "imports": [
-    "$$51$$",
-    "$$62$$",
     "$$54$$",
+    "$$58$$",
     "$$55$$",
-    "$$56$$"
+    "$$56$$",
+    "$$39$$"
   ],
   "_": "input",
   "path": "app/client.imba",
-  "js": "$$34$$",
-  "css": "$$57$$",
-  "map": "$$33$$"
+  "js": "$$35$$",
+  "css": "$$33$$",
+  "map": "$$34$$"
 },
-"$$40$$":{
+"$$43$$":{
   "bytes": 18005,
   "imports": [],
   "_": "input",
   "path": "node_modules/imba/src/imba/utils.imba"
 },
-"$$41$$":{
+"$$44$$":{
   "bytes": 16657,
   "imports": [],
   "_": "input",
   "path": "node_modules/imba/src/imba/scheduler.imba"
 },
-"$$42$$":{
+"$$45$$":{
   "bytes": 4307,
   "imports": [],
   "_": "input",
   "path": "node_modules/imba/src/imba/dom/flags.imba"
 },
-"$$43$$":{
-  "bytes": 41083,
+"$$46$$":{
+  "bytes": 41152,
   "imports": [
-    "$$42$$"
+    "$$45$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/dom/core.web.imba"
 },
-"$$44$$":{
+"$$47$$":{
   "bytes": 23557,
   "imports": [
-    "$$43$$"
+    "$$46$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/dom/fragment.imba"
 },
-"$$45$$":{
+"$$48$$":{
   "bytes": 26181,
   "imports": [
-    "$$43$$",
-    "$$44$$",
-    "$$41$$"
+    "$$46$$",
+    "$$47$$",
+    "$$44$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/dom/component.imba"
 },
-"$$46$$":{
-  "bytes": 11022,
+"$$49$$":{
+  "bytes": 28867,
   "imports": [
-    "$$43$$"
+    "$$46$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/dom/styles.imba"
 },
-"$$47$$":{
+"$$50$$":{
   "bytes": 381,
   "imports": [],
   "_": "input",
   "path": "node_modules/imba/src/imba/dom/context.imba"
 },
-"$$48$$":{
-  "bytes": 2022,
+"$$51$$":{
+  "bytes": 3094,
   "imports": [
-    "$$47$$",
-    "$$41$$"
+    "$$50$$",
+    "$$44$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/dom/mount.imba"
 },
-"$$49$$":{
+"$$52$$":{
   "bytes": 23690,
   "imports": [
-    "$$43$$",
-    "$$41$$"
+    "$$46$$",
+    "$$44$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/dom/bind.imba"
 },
-"$$50$$":{
-  "bytes": 28384,
+"$$53$$":{
+  "bytes": 27954,
   "imports": [
+    "$$46$$",
     "$$43$$",
-    "$$40$$",
-    "$$41$$"
+    "$$44$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/events/core.imba"
 },
-"$$51$$":{
+"$$54$$":{
   "bytes": 334,
   "imports": [
-    "$$63$$"
+    "$$59$$"
   ],
   "_": "input",
   "path": "node_modules/imba/index.imba"
 },
-"$$52$$":{
-  "bytes": 1470,
-  "imports": [],
-  "_": "input",
-  "path": "styles:app/global_styles.imba"
-},
-"$$53$$":{
-  "bytes": 1800,
-  "imports": [],
-  "_": "input",
-  "path": "styles:app/song.imba"
-},
-"$$54$$":{
+"$$55$$":{
   "bytes": 12882,
   "imports": [
-    "$$51$$",
-    "$$53$$"
+    "$$54$$",
+    "$$41$$"
   ],
   "_": "input",
   "path": "app/song.imba"
 },
-"$$55$$":{
+"$$56$$":{
   "bytes": 365614,
   "imports": [],
   "_": "input",
   "path": "app/songs.imba"
-},
-"$$56$$":{
-  "bytes": 6521,
-  "imports": [],
-  "_": "input",
-  "path": "styles:app/client.imba"
 },
 "$$57$$":{
   "imports": [],
   "inputs": [
     [
-      "$$56$$",
+      "$$60$$",
       5775
     ],
     [
-      "$$52$$",
-      1306
+      "$$61$$",
+      1344
     ],
     [
-      "$$53$$",
-      1605
+      "$$62$$",
+      1608
     ]
   ],
-  "bytes": 8687,
-  "source": "$$39$$",
+  "bytes": 8728,
+  "source": "$$63$$",
   "_": "output",
   "path": "public/__assets__/app/client.css",
-  "url": "/__assets__/app/client.css?v=YAHSFZ89",
+  "url": "/__assets__/app/client.css?v=CLHVEKYP",
   "type": "css",
   "dependencies": [],
-  "hash": "YAHSFZ89",
+  "hash": "CLHVEKYP",
   "originalPath": "public/__assets__/app/client.__dist__.css"
 },
 "$$58$$":{
-  "bytes": 6521,
-  "imports": [],
-  "_": "input",
-  "path": "styles:app/client.imba"
-},
-"$$59$$":{
-  "bytes": 1470,
-  "imports": [],
-  "_": "input",
-  "path": "styles:app/global_styles.imba"
-},
-"$$60$$":{
-  "bytes": 1800,
-  "imports": [],
-  "_": "input",
-  "path": "styles:app/song.imba"
-},
-"$$61$$":{
-  "bytes": 98235,
-  "imports": [
-    "$$64$$",
-    "$$65$$",
-    "$$66$$",
-    "$$58$$"
-  ],
-  "_": "input",
-  "path": "app/client.imba",
-  "css": "$$35$$"
-},
-"$$62$$":{
   "bytes": 2400,
   "imports": [
-    "$$52$$"
+    "$$40$$"
   ],
   "_": "input",
   "path": "app/global_styles.imba"
 },
-"$$63$$":{
+"$$59$$":{
   "bytes": 2157,
   "imports": [
-    "$$40$$",
-    "$$41$$",
-    "$$67$$",
-    "$$68$$",
-    "$$69$$",
     "$$43$$",
     "$$44$$",
-    "$$45$$",
+    "$$64$$",
+    "$$65$$",
+    "$$66$$",
     "$$46$$",
     "$$47$$",
     "$$48$$",
     "$$49$$",
     "$$50$$",
+    "$$51$$",
+    "$$52$$",
+    "$$53$$",
+    "$$67$$",
+    "$$68$$",
+    "$$69$$",
     "$$70$$",
-    "$$71$$",
-    "$$72$$",
-    "$$73$$",
-    "$$74$$"
+    "$$71$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/imba.imba"
 },
-"$$64$$":{
-  "bytes": 2400,
-  "imports": [
-    "$$59$$"
-  ],
+"$$60$$":{
+  "bytes": 6521,
+  "imports": [],
   "_": "input",
-  "path": "app/global_styles.imba"
+  "path": "styles:app/client.imba"
 },
-"$$65$$":{
-  "bytes": 12882,
+"$$61$$":{
+  "bytes": 1470,
+  "imports": [],
+  "_": "input",
+  "path": "styles:app/global_styles.imba"
+},
+"$$62$$":{
+  "bytes": 1800,
+  "imports": [],
+  "_": "input",
+  "path": "styles:app/song.imba"
+},
+"$$63$$":{
+  "bytes": 98235,
   "imports": [
+    "$$72$$",
+    "$$73$$",
+    "$$74$$",
     "$$60$$"
   ],
   "_": "input",
-  "path": "app/song.imba"
+  "path": "app/client.imba",
+  "css": "$$57$$"
 },
-"$$66$$":{
-  "bytes": 365614,
-  "imports": [],
-  "_": "input",
-  "path": "app/songs.imba"
-},
-"$$67$$":{
+"$$64$$":{
   "bytes": 549,
   "imports": [],
   "_": "input",
   "path": "node_modules/imba/src/imba/manifest.web.imba"
 },
-"$$68$$":{
+"$$65$$":{
   "bytes": 307,
   "imports": [],
   "_": "input",
   "path": "node_modules/imba/src/imba/process.web.imba"
 },
-"$$69$$":{
+"$$66$$":{
   "bytes": 4869,
   "imports": [
-    "$$67$$"
+    "$$64$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/asset.imba"
 },
-"$$70$$":{
-  "bytes": 9371,
+"$$67$$":{
+  "bytes": 9632,
   "imports": [
-    "$$43$$"
+    "$$46$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/events/intersect.imba"
 },
-"$$71$$":{
-  "bytes": 31998,
+"$$68$$":{
+  "bytes": 41190,
   "imports": [
-    "$$43$$",
-    "$$40$$"
+    "$$46$$",
+    "$$43$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/events/pointer.imba"
 },
-"$$72$$":{
-  "bytes": 3252,
+"$$69$$":{
+  "bytes": 3510,
   "imports": [
-    "$$43$$"
+    "$$46$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/events/resize.imba"
 },
-"$$73$$":{
-  "bytes": 2896,
+"$$70$$":{
+  "bytes": 3157,
   "imports": [
-    "$$43$$"
+    "$$46$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/events/selection.imba"
 },
-"$$74$$":{
+"$$71$$":{
   "bytes": 42085,
   "imports": [
     "$$75$$",
-    "$$43$$",
+    "$$46$$",
     "$$76$$",
     "$$77$$",
     "$$78$$",
     "$$79$$",
-    "$$41$$",
-    "$$40$$",
+    "$$44$$",
+    "$$43$$",
     "$$80$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/router/index.imba"
+},
+"$$72$$":{
+  "bytes": 2400,
+  "imports": [
+    "$$61$$"
+  ],
+  "_": "input",
+  "path": "app/global_styles.imba"
+},
+"$$73$$":{
+  "bytes": 12882,
+  "imports": [
+    "$$62$$"
+  ],
+  "_": "input",
+  "path": "app/song.imba"
+},
+"$$74$$":{
+  "bytes": 365614,
+  "imports": [],
+  "_": "input",
+  "path": "app/songs.imba"
 },
 "$$75$$":{
   "bytes": 14160,
@@ -850,7 +850,7 @@
 "$$80$$":{
   "bytes": 3894,
   "imports": [
-    "$$40$$"
+    "$$43$$"
   ],
   "_": "input",
   "path": "node_modules/imba/src/imba/queue.imba"
@@ -892,14 +892,14 @@
   "outputs": {
     "server.js": "$$31$$",
     "public/index.html": "$$32$$",
-    "public/__assets__/app/client.js.map": "$$33$$",
-    "public/__assets__/app/client.js": "$$34$$",
-    "public/__assets__/app/client.css": "$$35$$"
+    "public/__assets__/app/client.css": "$$33$$",
+    "public/__assets__/app/client.js.map": "$$34$$",
+    "public/__assets__/app/client.js": "$$35$$"
   },
   "urls": {
-    "/__assets__/app/client.js.map": "$$33$$",
-    "/__assets__/app/client.js?v=B9RD7ZD7": "$$34$$",
-    "/__assets__/app/client.css?v=YAHSFZ89": "$$35$$"
+    "/__assets__/app/client.css?v=CLHVEKYP": "$$33$$",
+    "/__assets__/app/client.js.map": "$$34$$",
+    "/__assets__/app/client.js?v=LGYR8AFD": "$$35$$"
   },
   "main": "$$31$$",
   "assets": [
@@ -912,5 +912,5 @@
   "path": "server.js.manifest",
   "srcdir": "../..",
   "outdir": "..",
-  "hash": "4G8QDLUQ"
+  "hash": "IYKHZXWB"
 }
