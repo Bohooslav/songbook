@@ -1,5 +1,5 @@
 {
-  "name": "bohuslavBohooslav.github.io",
+  "name": "songbook",
   "scripts": {
     "start": "imba -w server.imba",
     "build": "imba build server.imba --no-hashing"
