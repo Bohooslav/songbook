@@ -56,7 +56,7 @@ global css
 		
 
 	body
-		font-family: 'sans', 'sans-serif', "Apple Color Emoji", "Droid Sans Fallback", "Noto Color Emoji", "Segoe UI Emoji"
+		font-family: sans, sans-serif, "Apple Color Emoji", "Droid Sans Fallback", "Noto Color Emoji", "Segoe UI Emoji"
 		font-size: 18px
 		background: $background-color
 		color: $text-color
