@@ -53,7 +53,7 @@ global css
 		-webkit-appearance: none
 		-moz-appearance: none
 		appearance: none
-		
+
 
 	body
 		font-family: sans, sans-serif, "Apple Color Emoji", "Droid Sans Fallback", "Noto Color Emoji", "Segoe UI Emoji"
