@@ -473,20 +473,20 @@ tag app
 
 	<self>
 		<nav @touchstart=slidestart @touchend=closedrawersend @touchcancel=closedrawersend @touchmove=closingdrawer style="left: {songbook_menu_left}px; {boxShadow(songbook_menu_left)}{(onzone || inzone) ? 'transition:none;' : ''}">
-			<[pos:sticky t:calc(100vh - 91px) d:flex]>
+			<h1[fs:20px pb:16px ta:center cursor:pointer c@hover:$accent-hover-color] @click=(current_song_index = -1)> 'СЛАВТЕ ГОСПОДА'
+			<ul [h:calc(100% - 100px) ofy:auto]>
+				for song, i in filtered_songs
+					<li role='button' @click=goToSong(song)> song.name
+				unless filtered_songs.length
+					<pre[ff:inherit ta:center]> '(ಠ╭╮ಠ)    ¯\\_(ツ)_/¯   ノ( ゜-゜ノ)'
+				<[h:128px]>
+			<[d:flex]>
 				<input$search aria-label='Пошук' placeholder='Пошук' bind=search_query @keyup=filterSongs>
 				<button [
 					bg:$background-color fs:2em c@hover:firebrick size:59px
 					bd:none cursor:pointer
 				] @click=cleanSearchField>
 					<span[transform:rotate(45deg) d:inline-block o:0.7 @hover:1]> '+'
-			<h1[fs:20px pb:16px mt:-64px ta:center cursor:pointer c@hover:$accent-hover-color] @click=(current_song_index = -1)> 'СЛАВТЕ ГОСПОДА'
-
-			for song, i in filtered_songs
-				<p @click=goToSong(song)> song.name
-			unless filtered_songs.length
-				<pre[ff:inherit ta:center]> '(ಠ╭╮ಠ)    ¯\\_(ツ)_/¯   ノ( ゜-゜ノ)'
-			<[h:128px]>
 
 
 		if current_song_index < 0
@@ -579,7 +579,7 @@ tag app
 					<p.checkbox> <span>
 
 				<footer[ta:center mt:32px]>
-					<p[fs:24px]>
+					<p[fs:20px]>
 						"♪└|∵|┐♪└|∵|┘♪┌|∵|┘♪"
 					<address[fs:12px mt:16px c:gray]>
 						"© "
@@ -650,7 +650,7 @@ tag app
 	css #navigation > div@hover > svg 
 		fill: $accent-hover-color
 
-	css #navigation p 
+	css #navigation p
 		m:0
 		display: none @lt-lg: inline-block
 		padding: 0 8px
@@ -672,7 +672,7 @@ tag app
 		padding: 32px 0 0
 		ofy:auto
 
-	css nav p
+	css nav li
 		p: 8px
 		c@hover: $accent-hover-color
 		cursor:pointer
