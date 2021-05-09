@@ -1,6 +1,3 @@
-# import {available_chords} from './chords'
-# import * as available_chords from './chords.json'
-
 export tag song-tag
 	song = {}
 	settings = {}
@@ -10,9 +7,8 @@ export tag song-tag
 		return "/chords/{chord}.png"
 
 
-
 	<self[ff:{settings.font.family} fs:{settings.font.size} lh:{settings.font.line-height}]>
-		<h1>
+		<h1[lh:1]>
 			song.name
 			if song.transposition > 0
 				' +'
@@ -35,9 +31,10 @@ export tag song-tag
 								<span>
 									if /[A-H]/.test(part[0])
 										<span.chord>
-											<span> part
-											<.chord_img>
-												<img .invert=(settings.theme == 'dark') src=chordImgUrl(part) alt=part>
+											part
+											if document.getSelection().isCollapsed
+												<.chord_img>
+													<img .invert=(settings.theme == 'dark') src=chordImgUrl(part) alt=part>
 									else
 										part
 	

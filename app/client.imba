@@ -157,6 +157,8 @@ tag app
 			imba.commit!
 		)
 
+		document.oncopy = cleancopy
+
 
 
 	def transpose song, transposition
@@ -314,7 +316,7 @@ tag app
 			imba.commit!.then do document.documentElement.dataset.pukaka = 'no'
 
 	def decreaseFontSize
-		if settings.font.size > 16
+		if settings.font.size > 12
 			settings.font.size -= 2
 			setCookie('font', settings.font.size)
 
@@ -471,6 +473,98 @@ tag app
 			songbook_menu_left = -300
 
 
+
+
+	def cleancopy event
+		const selection = document.getSelection()
+		console.log selection
+		# Fix selection of single node
+		if selection.focusNode == selection.anchorNode
+			return
+		
+		let result = ''
+		let range
+
+		# If multiple range. The user pressed Ctrl + A ???
+		if selection.rangeCount > 1
+			range = new Range()
+
+			const song-node = document.getElementsByTagName('song-tag')[0]
+			const last_child = song-node.lastChild.lastChild.lastChild.lastChild
+
+			range.setStart(song-node.firstChild.firstChild, 0)
+			range.setEnd(last_child, last_child.textContent.length)
+		else
+			range = selection.getRangeAt(0)
+
+
+
+		# Iterate from startContainer to endContainer of the range
+		let cnode = range.startContainer
+		result += range.startContainer.textContent.substring(range.startOffset)
+
+		# This incrementor will prevent infinity loop
+		let incrementer = 1
+		while incrementer < 1000
+			incrementer++
+			if cnode.nextSibling
+				cnode = cnode.nextSibling
+			else
+				if cnode.parentNode.nextSibling
+					cnode = cnode.parentNode.nextSibling
+				else
+					if cnode.parentNode.parentNode.nextSibling
+						cnode = cnode.parentNode.parentNode.nextSibling
+					else
+						if cnode.parentNode.parentNode.parentNode.nextSibling
+							cnode = cnode.parentNode.parentNode.parentNode.nextSibling
+						else
+							console.log 'here', cnode.parentNode.parentNode.parentNode.parentNode
+							cnode = cnode.parentNode.parentNode.parentNode.parentNode.nextSibling
+
+			# Safety check
+			if cnode == null
+				console.log 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa'
+				break
+			# If user selected header text -- then we need to prevent jumping from pre node to nav
+			if cnode.nodeName == "PRE"
+				cnode = cnode.firstChild
+
+			if cnode.contains(range.endContainer) && cnode.nodeName != 'PRE'
+				result += '\n' + cnode.textContent.substring(0, range.endOffset)
+				break
+
+			# console.log cnode.textContent, cnode
+			if cnode.textContent == ''
+				result += '\n'
+			else
+				if cnode.nodeName != 'SPAN'
+					result += '\n' + cnode.textContent
+				else
+					result += cnode.textContent
+
+
+		console.log result
+		event.clipboardData.setData('text/plain', result)
+		event.preventDefault()
+
+
+
+
+	def songbookIconTransform huh
+		if (window.innerWidth > 1024) or huh
+			return 300 + songbook_menu_left
+		else
+			return 0
+
+
+	def settingsIconTransform huh
+		if (window.innerWidth > 1024) or huh
+			return -(300 + settings_menu_left)
+		else
+			return 0
+
+
 	<self>
 		<nav @touchstart=slidestart @touchend=closedrawersend @touchcancel=closedrawersend @touchmove=closingdrawer style="left: {songbook_menu_left}px; {boxShadow(songbook_menu_left)}{(onzone || inzone) ? 'transition:none;' : ''}">
 			<h1[fs:20px pb:16px ta:center cursor:pointer c@hover:$accent-hover-color] @click=(current_song_index = -1)> 'СЛАВТЕ ГОСПОДА'
@@ -516,9 +610,19 @@ tag app
 					] @click=toggleSongsMenu> "СПІВАТИ"
 					<p[margin:0 auto 16px color: #c2834e]> "БУШТИНО 2020"
 		else
-			<main[p:4vh {settings.show_chords ? '24px' : '4vw'} 16vh max-width:100% ofx:auto] @mousemove=mousemove>
+			<main[p:64px {settings.show_chords ? '24px' : '4vw'} 128px fs:{settings.font.size}px 16vh max-width:100% ofx:auto] @mousemove=mousemove>
 				<song-tag song=songs[current_song_index] settings=settings>
 
+
+			<div.aside_arrows[transform:translateX({songbookIconTransform(yes)}px)] @click=toggleSongsMenu>
+				<svg .arrow_next=!songbookIconTransform(yes) .arrow_prev=songbookIconTransform(yes) [fill:$accent-color] width="16" height="10" viewBox="0 0 8 5">
+					<title> 'Пісник'
+					<polygon points="4,3 1,0 0,1 4,5 8,1 7,0">
+
+			<div.aside_arrows[r:0 transform:translateX({settingsIconTransform(yes)}px)] @click=toggleSettingsMenu>
+				<svg .arrow_next=settingsIconTransform(yes) .arrow_prev=!settingsIconTransform(yes) [fill:$accent-color] width="16" height="10" viewBox="0 0 8 5">
+					<title> "Налаштування"
+					<polygon points="4,3 1,0 0,1 4,5 8,1 7,0">
 
 		unless current_song_index < 0
 			<aside @touchstart=slidestart @touchend=closedrawersend @touchcancel=closedrawersend @touchmove=closingdrawer style="right:{stiingsMenuRight!}px;{boxShadow(settings_menu_left)}{(onzone || inzone) ? 'transition:none;' : ''}">
@@ -594,7 +698,7 @@ tag app
 
 
 		unless current_song_index < 0
-			<header#navigation>
+			<#navigation>
 				<[l:0 transform: translateY({menu_icons_transform}%)] @click=toggleSongbookMenu>
 					<svg viewBox="0 0 16 16">
 						<title> 'Пісник'
@@ -607,147 +711,157 @@ tag app
 							<path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z">
 					<p> "Налаштування"
 
+	css
+		.arrow_next
+			transform: rotate(-90deg)
+
+		.arrow_prev
+			transform: rotate(90deg)
+
+		.aside_arrows
+			w:2vw w:min(32px, max(16px, 2vw)) h:100% t:0 pos:fixed
+			bg@hover:#8881 o:0 @hover:1 d:flex ai:center jc:center cursor:pointer
+			zi:2
+
+		#navigation
+			position: fixed
+			top: auto @lg: 0
+			b:0 @lg: auto
+			right: 0
+			left: 0
+			display: flex
+			justify-content: space-between
+			height: 0
+			z-index: 2
+			cursor: pointer
+			us:none
+
+		#navigation > div 
+			padding: 3vw
+			width: calc(32px + 6vw)
+			height: calc(32px + 6vw)
+			c@hover: $accent-hover-color
+			width@lt-lg: 50%
+			bottom@lt-lg: 0
+			padding@lt-lg: 4px
+			height@lt-lg: 54px
+			position@lt-lg: absolute
+			background-color@lt-lg: $background-color
+			border-top@lt-lg: 1px solid $btn-bg
+			display@lt-lg: flex
+			flex-direction: column
+			justify-content: center
+			align-items: center
+
+		#navigation svg 
+			width: 32px
+			height: 32px
+			min-height: 32px
+			fill: $text-color
+			opacity@lt-lg: 0.75 @hover: 1
+
+		#navigation > div@hover > svg 
+			fill: $accent-hover-color
+
+		#navigation p
+			m:0
+			display: none @lt-lg: inline-block
+			padding: 0 8px
+			opacity: 0.75
+			font-size: 12px
 
 
+		aside
+			border-left: 1px solid $btn-bg
+			padding: 32px 12px
+			overflow-y: auto
+			-webkit-overflow-scrolling: touch
+			d:flex
+			fld:column
+			jc:end
 
-	css #navigation
-		position: fixed
-		top: 0 @lt-lg: auto
-		right: 0
-		left: 0
-		b@lt-lg: 0
-		display: flex
-		justify-content: space-between
-		height: 0
-		z-index: 2
-		cursor: pointer
-		us:none
+		nav 
+			border-right: 1px solid $btn-bg
+			padding: 32px 0 0
+			ofy:auto
 
-	css #navigation > div 
-		padding: 3vw
-		width: calc(32px + 6vw)
-		height: calc(32px + 6vw)
-		c@hover: $accent-hover-color
-		width@lt-lg: 50%
-		bottom@lt-lg: 0
-		padding@lt-lg: 4px
-		height@lt-lg: 54px
-		position@lt-lg: absolute
-		background-color@lt-lg: $background-color
-		border-top@lt-lg: 1px solid $btn-bg
-		display@lt-lg: flex
-		flex-direction: column
-		justify-content: center
-		align-items: center
+		nav li
+			p: 8px
+			c@hover: $accent-hover-color
+			cursor:pointer
 
-	css #navigation svg 
-		width: 32px
-		height: 32px
-		min-height: 32px
-		fill: $text-color
-		opacity@lt-lg: 0.75 @hover: 1
-
-	css #navigation > div@hover > svg 
-		fill: $accent-hover-color
-
-	css #navigation p
-		m:0
-		display: none @lt-lg: inline-block
-		padding: 0 8px
-		opacity: 0.75
-		font-size: 12px
+		$search
+			w:calc(100% - 59px)
+			bg:$background-color
+			fs:1.2em
+			p:16px
+			pr:0
+			c:inherit
+			bd:none
 
 
-	css aside
-		border-left: 1px solid $btn-bg
-		padding: 32px 12px
-		overflow-y: auto
-		-webkit-overflow-scrolling: touch
-		d:flex
-		fld:column
-		jc:end
+		nav, aside 
+			position: fixed
+			top: 0
+			bottom: 0
+			us:none
+			width: 300px
+			touch-action: pan-y
+			z-index: 1000
+			background-color: $background-color
 
-	css nav 
-		border-right: 1px solid $btn-bg
-		padding: 32px 0 0
-		ofy:auto
+		.flexy-item
+			margin: 12px 0
+			height: 38px
+			cursor: pointer
+			display: flex
+			align-items: center
+			opacity: 0.5
+			
+		.activated-checkbox
+			o:1
 
-	css nav li
-		p: 8px
-		c@hover: $accent-hover-color
-		cursor:pointer
+		.checkbox
+			width: 50px
+			min-width: 50px
+			height: 30px
+			border: 2px solid $text-color
+			border-radius: 40px
+			margin-left: auto
 
-	css $search
-		w:calc(100% - 59px)
-		bg:$background-color
-		fs:1.2em
-		p:16px
-		pr:0
-		c:inherit
-		bd:none
+		.checkbox span
+			display: block
+			size: 28px
+			background: $text-color
+			border-radius: 14px
+
+		.activated-checkbox span
+			transform: translateX(20px)
 
 
-	css nav, aside 
-		position: fixed
-		top: 0
-		bottom: 0
-		us:none
-		width: 300px
-		touch-action: pan-y
-		z-index: 1000
-		background-color: $background-color
+		.btnbox
+			height: 46px
+			margin: 16px 0
+			
+		.cbtn
+			cursor: pointer
+			width: 50%
+			height: 100%
+			fill: $text-color @hover: $accent-hover-color
+			color: $text-color @hover: $accent-hover-color
+			bgc:transparent @hover: $btn-bg-hover @active: $btn-bg
+			display: inline-block
+			text-align: center
+			rd: 8px
+			transform@active: translateY(4px)
+			bd:none
 
-	css .flexy-item
-		margin: 12px 0
-		height: 38px
-		cursor: pointer
-		display: flex
-		align-items: center
-		opacity: 0.5
+		.full-screen
+			pos:fixed r:0 l:0 t:0 b:0	
 		
-	css .activated-checkbox
-		o:1
+		a
+			td:none
+			c:gray @hover:$accent-hover-color
 
-	css .checkbox
-		width: 50px
-		min-width: 50px
-		height: 30px
-		border: 2px solid $text-color
-		border-radius: 40px
-		margin-left: auto
-
-	css .checkbox span
-		display: block
-		size: 28px
-		background: $text-color
-		border-radius: 14px
-
-	css .activated-checkbox span
-		transform: translateX(20px)
-
-
-	css .btnbox
-		height: 46px
-		margin: 16px 0
-		
-	css .cbtn
-		cursor: pointer
-		width: 50%
-		height: 100%
-		fill: $text-color @hover: $accent-hover-color
-		color: $text-color @hover: $accent-hover-color
-		bgc:transparent @hover: $btn-bg-hover @active: $btn-bg
-		display: inline-block
-		text-align: center
-		rd: 8px
-		transform@active: translateY(4px)
-		bd:none
-
-	css .full-screen
-		pos:fixed r:0 l:0 t:0 b:0	
-	
-	css a
-		td:none
-		c:gray @hover:$accent-hover-color
 
 imba.mount <app>
