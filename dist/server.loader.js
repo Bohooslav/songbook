@@ -6,7 +6,6 @@ var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __markAsModule = (target) => __defProp(target, "__esModule", {value: true});
 var __exportStar = (target, module2, desc) => {
-  __markAsModule(target);
   if (module2 && typeof module2 === "object" || typeof module2 === "function") {
     for (let key of __getOwnPropNames(module2))
       if (!__hasOwnProp.call(target, key) && key !== "default")
@@ -15,9 +14,7 @@ var __exportStar = (target, module2, desc) => {
   return target;
 };
 var __toModule = (module2) => {
-  if (module2 && module2.__esModule)
-    return module2;
-  return __exportStar(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", {value: module2, enumerable: true}), module2);
+  return __exportStar(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? {get: () => module2.default, enumerable: true} : {value: module2, enumerable: true})), module2);
 };
 
 // loader.imba
@@ -157,7 +154,7 @@ var Asset = class {
     return stream.pipe(res);
   }
   toString() {
-    return this.url;
+    return this.url || this.absPath;
   }
 };
 var Manifest = class extends import_events.EventEmitter {
@@ -175,10 +172,10 @@ var Manifest = class extends import_events.EventEmitter {
     this.init(options.data);
   }
   get srcdir() {
-    return import_path.default.resolve(this.path, this.data.srcdir);
+    return import_path.default.resolve(import_path.default.dirname(this.path), this.data.srcdir);
   }
   get outdir() {
-    return import_path.default.resolve(this.path, this.data.outdir);
+    return import_path.default.resolve(import_path.default.dirname(this.path), this.data.outdir);
   }
   get changes() {
     return this.data.changes || {};
@@ -213,6 +210,9 @@ var Manifest = class extends import_events.EventEmitter {
       return import_path.default.resolve(this.cwd, path.path || path);
     }
     ;
+  }
+  resolveAssetPath(path) {
+    return import_path.default.resolve(this.outdir, path);
   }
   read(path) {
     return import_fs.default.readFileSync(this.resolve(path), "utf-8");
