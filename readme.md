@@ -1,11 +1,8 @@
 # Getting Started
 
-This project was bootstrapped with [imba-base-template](https://github.com/imba/imba-base-template).
+In the project directory run:
 
-## Available Scripts
-
-In the project directory, you can run:
-
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.
