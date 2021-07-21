@@ -684,13 +684,11 @@ tag app
 					<address[fs:12px mt:16px c:gray]>
 						"© "
 						<time time.datetime="2020-02-24T12:38"> "2021 "
-						<a target="_blank" rel="noreferrer" href="https://t.me/yanch4i"> "Ян Кушілка"
-						" · "
 						<a target="_blank" rel="noreferrer" href="https://t.me/Boguslavv"> "Богуслав Павлишинець"
 						" · "
-						<a target="_blank" rel="noreferrer" href="https://t.me/Tymkoo"> "Віталій Тимко"
+						<a target="_blank" rel="noreferrer" href="https://t.me/yanch4i"> "Ян Кушілка"
 						" · "
-						<a target="_blank" rel="noreferrer" [ws:pre] href="https://send.monobank.ua/6ao79u5rFZ"> "🔥 Пожертвувати 🐈"
+						<a target="_blank" rel="noreferrer" href="https://t.me/Tymkoo"> "Віталій Тимко"
 
 
 		unless current_song_index < 0
