@@ -34,18 +34,18 @@ for song, index in songs
 			line.chords = chords
 			
 
-let agent = window.navigator.userAgent;
-let isWebkit = (agent.indexOf("AppleWebKit") > 0);
-let isIPad = (agent.indexOf("iPad") > 0);
-let isIOS = (agent.indexOf("iPhone") > 0 || agent.indexOf("iPod") > 0)
-let isAndroid = (agent.indexOf("Android")  > 0)
-let isNewBlackBerry = (agent.indexOf("AppleWebKit") > 0 && agent.indexOf("BlackBerry") > 0)
-let isWebOS = (agent.indexOf("webOS") > 0);
-let isWindowsMobile = (agent.indexOf("IEMobile") > 0)
-let isSmallScreen = (screen.width < 767 || (isAndroid && screen.width < 1000))
-let isUnknownMobile = (isWebkit && isSmallScreen)
-let isMobile = (isIOS || isAndroid || isNewBlackBerry || isWebOS || isWindowsMobile || isUnknownMobile)
-let isTablet = (isIPad || (isMobile && !isSmallScreen))
+const agent = window.navigator.userAgent;
+const isWebkit = (agent.indexOf("AppleWebKit") > 0);
+const isIPad = (agent.indexOf("iPad") > 0);
+const isIOS = (agent.indexOf("iPhone") > 0 || agent.indexOf("iPod") > 0)
+const isAndroid = (agent.indexOf("Android")  > 0)
+const isNewBlackBerry = (agent.indexOf("AppleWebKit") > 0 && agent.indexOf("BlackBerry") > 0)
+const isWebOS = (agent.indexOf("webOS") > 0);
+const isWindowsMobile = (agent.indexOf("IEMobile") > 0)
+const isSmallScreen = (screen.width < 767 || (isAndroid && screen.width < 1000))
+const isUnknownMobile = (isWebkit && isSmallScreen)
+const isMobile = (isIOS || isAndroid || isNewBlackBerry || isWebOS || isWindowsMobile || isUnknownMobile)
+const isTablet = (isIPad || (isMobile && !isSmallScreen))
 
 let MOBILE_PLATFORM = no
 
@@ -477,7 +477,6 @@ tag app
 
 	def cleancopy event
 		const selection = document.getSelection()
-		console.log selection
 		# Fix selection of single node
 		if selection.focusNode == selection.anchorNode
 			return
@@ -519,7 +518,6 @@ tag app
 						if cnode.parentNode.parentNode.parentNode.nextSibling
 							cnode = cnode.parentNode.parentNode.parentNode.nextSibling
 						else
-							console.log 'here', cnode.parentNode.parentNode.parentNode.parentNode
 							cnode = cnode.parentNode.parentNode.parentNode.parentNode.nextSibling
 
 			# Safety check
@@ -543,8 +541,6 @@ tag app
 				else
 					result += cnode.textContent
 
-
-		console.log result
 		event.clipboardData.setData('text/plain', result)
 		event.preventDefault()
 
@@ -693,10 +689,12 @@ tag app
 						<a target="_blank" rel="noreferrer" href="https://t.me/Boguslavv"> "Богуслав Павлишинець"
 						" · "
 						<a target="_blank" rel="noreferrer" href="https://t.me/Tymkoo"> "Віталій Тимко"
+						" · "
+						<a target="_blank" rel="noreferrer" [ws:pre] href="https://send.monobank.ua/6ao79u5rFZ"> "🔥 Пожертвувати 🐈"
 
 
 		unless current_song_index < 0
-			<#navigation>
+			<section id="navrow" [t:0px @lt-lg:auto b:auto @lt-lg:0]>
 				<[l:0 transform: translateY({menu_icons_transform}%)] @click=toggleSongbookMenu>
 					<svg viewBox="0 0 16 16">
 						<title> 'Пісник'
@@ -721,12 +719,10 @@ tag app
 			bg@hover:#8881 o:0 @hover:1 d:flex ai:center jc:center cursor:pointer
 			zi:2
 
-		#navigation
-			position: fixed
-			top: auto @lg: 0
-			b:0 @lg: auto
-			right: 0
-			left: 0
+		#navrow
+			position:fixed
+			right:0
+			left:0
 			display: flex
 			justify-content: space-between
 			height: 0
@@ -734,7 +730,7 @@ tag app
 			cursor: pointer
 			us:none
 
-		#navigation > div 
+		#navrow > div 
 			padding: 3vw
 			width: calc(32px + 6vw)
 			height: calc(32px + 6vw)
@@ -751,17 +747,17 @@ tag app
 			justify-content: center
 			align-items: center
 
-		#navigation svg 
+		#navrow svg 
 			width: 32px
 			height: 32px
 			min-height: 32px
 			fill: $text-color
 			opacity@lt-lg: 0.75 @hover: 1
 
-		#navigation > div@hover > svg 
+		#navrow > div@hover > svg 
 			fill: $accent-hover-color
 
-		#navigation p
+		#navrow p
 			m:0
 			display: none @lt-lg: inline-block
 			padding: 0 8px
