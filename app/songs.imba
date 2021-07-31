@@ -4421,11 +4421,16 @@ export let songs = [
 	{
 		name: "Благословение"
 		lines: [
+			{chords: "E                             A"}
 			{text: "// Благословит тебя Хранитель"}
+			{chords: "E                           H                     C#m"}
 			{text: "Благодатным сиянием тебя озарит"}
+			{chords: "                       A"}
 			{text: "Бог направит к тебе взгляд Свой"} 
+			{chords: "E   H      E"}
 			{text: "Дарует мир //2"}
 			{break:yes}
+			{chords: "C#m A           E           H"}
 			{text: "// Аминь   Аминь   Аминь //2"}
 			{break:yes}
 			{text: "Благословит тебя Хранитель"}
@@ -4436,10 +4441,14 @@ export let songs = [
 			{text: "// Аминь   Аминь   Аминь"}
 			{text: "Аминь   Аминь   Аминь //2"}
 			{break:yes}
+			{chords: "C#m"}
 			{text: "// На тебе пусть Божья милость"}
+			{chords: "             A"}
 			{text: "Пребывает в поколениях"}
+			{chords: "                 E"}
 			{text: "В твоем доме"}
 			{text: "В твоих детях"}
+			{chords: "            H"}
 			{text: "На их детях"} 
 			{text: "И их детях //2"}
 			{break:yes}
@@ -4459,9 +4468,12 @@ export let songs = [
 	{
 		name: "Великий Бог Израилев"
 		lines: [
+			{chords: "Am"}
 			{text: "// Великий Бог Израилев !"} 
+			{chords: "                              E"}
 			{text: "Великий Бог Израилев !"} 
 			{text: "Голос Его слышен, силен Его зов"} 
+			{chords: "                                Am"}
 			{text: "Великий Бог Израилев ! //2р."}
 			{break:yes}
 			{text: "И возгремит Господь гласом славы Своей,"} 
@@ -4492,10 +4504,15 @@ export let songs = [
 	{
 		name: "Воскликните Господу(Пс 99)"
 		lines: [
+			{chords: "C                   F              G        C"}
 			{text: "Воскликните Господу, вся земля!"} 
-			{text: "Служите Господу с веселием;"} 
+			{chords: "          F     C                 Dm    G"}
+			{text: "Служите Господу с веселием;"}
+			{chords: "    C                F               G         C"} 
 			{text: "Идите пред лице Его с восклицанием!"}
+			{chords: "        F                  C"}
 			{text: "Познайте, что благ Господь: "}
+			{chords: "    Dm        G       C"}
 			{text: "Вовек милость Его."}
 			{break:yes}
 			{bridge: "проиграш"}
@@ -4506,9 +4523,13 @@ export let songs = [
 			{text: "Познайте, что благ Господь: "}
 			{text: "Вовек милость Его. "}
 			{break:yes}
+			{chords: "  C                        F       G        C"}
 			{text: "Познайте, что Господь есть Бог, "}
+			{chords: "   F                   C             Dm      G"}
 			{text: "Что Он сотворил нас, и мы - Его,"}
+			{chords: "  C                 F        G            C"}
 			{text: "Его народ и овцы паствы Его"}
+			{chords: "  F                C        Dm G      C"}
 			{text: "Его народ и овцы паствы Его "}
 			{break:yes}
 			{text: "Воскликните Господу, вся земля! "}
@@ -4528,8 +4549,11 @@ export let songs = [
 			{text: "Познайте, что благ Господь: "}
 			{text: "Вовек милость Его. "}
 			{break:yes}
+			{chords: "F                      C"}
 			{text: "// Ибо благ Господь"}
+			{chords: "F             Am     G"}
 			{text: "милость Его вовек, "}
+			{chords: "  F          C      Dm C  G"}
 			{text: "истина Его в род и род //2р."}
 			{break:yes}
 			{text: "Воскликните Господу, вся земля! "}
@@ -4542,16 +4566,25 @@ export let songs = [
 	{
 		name: "Дал свободу мне"
 		lines: [
+			{chords: "E"}
 			{text: "Кто же я, что Всевышний Царь"}
+			{chords: "C#m   H      E"}
 			{text: "Меня призвал"}
+			{chords: "E"}
 			{text: "Я блуждал, но любовь Твоя"}
+			{chords: "C#m   H     A"}
 			{text: "Меня нашла"}
+			{chords: "C#m       H    A"}
 			{text: "О, меня нашла"}
 			{break:yes}
 			{refrain: "Припев:"}
+			{chords: "               E"}
 			{text: "Дал свободу мне"}
+			{chords: "       H"}
 			{text: "Иисус навек"}
+			{chords: "     C#m  H A"}
 			{text: "Я дитя Царя"}
+			{chords: "      E"}
 			{text: "Знаю я"}
 			{break:yes}
 			{text: "Я свободен Искуплен Им"}
@@ -4570,10 +4603,15 @@ export let songs = [
 			{text: "Я дитя Царя "}
 			{text: "Знаю я"}
 			{break:yes}
+			{chords: "C#m"}
 			{text: "// Богом избран"}
+			{chords: "           H                E                   A"}
 			{text: "Не оставлен, Я знаю, кто я в Тебе"}
+			{chords: "  C#m"}
 			{text: "Твоим другом"}
+			{chords: "             H                E                  A"}
 			{text: "Был я назван, Я знаю, кто я в Тебе //2р."}
+			{chords: "    C#m        H       A"}
 			{text: "Я знаю, кто я в Тебе "}
 			{break:yes}
 			{refrain: "Припев:"}
@@ -4590,15 +4628,24 @@ export let songs = [
 	{
 		name: "Милость Твоя Господи до небес(Пс.35)"
 		lines: [
+			{chords: "E"}
 			{text: "Милость Твоя Господи до небес"}
+			{chords: "   C#m"}
 			{text: "Истина Твоя до облаков"}
+			{chords: "       A                      E          H"}
 			{text: "Как горы Божии правда Твоя"}
+			{chords: "E              A           H"}
 			{text: "Источник жизни у Тебя"}
+			{chords: "E               A              H"}
 			{text: "Во свете Твоем мы видим свет"}
+			{chords: "                    F             H         E"}
 			{text: "Милость Твоя до небес Господь"}
 			{break:yes}
+			{chords: "            E"}
 			{text: "Вся земля воскликните Господу"}
+			{chords: "      C#m                     H         A "}
 			{text: "Служите Господу с восклицанием "}
+			{chords: "                H      E"}
 			{text: "Пред лицем Его"}
 			{break:yes}
 			{text: "Милость Твоя Господи до небес"}
@@ -4614,8 +4661,11 @@ export let songs = [
 			{break:yes}
 			{bridge: "проигрыш"}
 			{break:yes}
+			{chords: "           A"}
 			{text: "// Познайте что Господь - есть Бог"}
+			{chords: "            E"}
 			{text: "Сотворил Он нас и мы "}
+			{chords: "   C#m H     A              H"}
 			{text: "Его народ вовек ибо благ //2р."}
 			{break:yes}
 			{text: "// Вся земля воскликните Господу"}
@@ -4626,19 +4676,30 @@ export let songs = [
 	{
 		name: "Моя сила - Господь"
 		lines: [
+			{chords: "       Em                G"}
 			{text: "До Тебе кличу Скеля моя"}
+			{chords: "     Am                        G"}
 			{text: "Почуй мій голос благання моє"}
+			{chords: "       C          G           Am       D"}
 			{text: "Підношу я руки до Тебе Господь"}
 			{break:yes}
 			{refrain: "Приспів:"}
+			{chords: "      Em D        C                    G"}
 			{text: "Моя сила- Господь то мій Щит"}
+			{chords: "      Em               D         C     G"}
 			{text: "Моє серце на Нього надіється"}
+			{chords: "  Em       D             C      G"}
 			{text: "Він допоміг мені радію я "}
+			{chords: "  Em          D            C              G"}
 			{text: "Співом своїм прославлю Творця"}
 			{break:yes}
+			{chords: "Em            D            C     G"}
 			{text: "Дорогу Свою покажи мені "}
+			{chords: "  Em          D              C          G"}
 			{text: "Стежкою рівною провадь мене "}
+			{chords: "  Em        D            C          G"}
 			{text: "Ти моє світло спасіння моє "}
+			{chords: "  Em             D        C   G"}
 			{text: "Твердиня мого життя"}
 			{break:yes}
 			{refrain: "Приспів:"}
@@ -4647,9 +4708,13 @@ export let songs = [
 			{text: "Він допоміг мені радію я "}
 			{text: "Співом своїм прославлю Творця"}
 			{break:yes}
+			{chords: "     C"}
 			{text: "// Надійся на Господа "}
+			{chords: "    D"}
 			{text: "Сильний будь "}
+			{chords: "  Am"}
 			{text: "Хай твоє серце "}
+			{chords: "   G"}
 			{text: "Буде міцним //2р."}
 			{break:yes}
 			{refrain: "Приспів:"}
@@ -4662,17 +4727,27 @@ export let songs = [
 	{
 		name: "Мы все одна семья"
 		lines: [
+			{chords: "C#m           A     C#m         A"}
 			{text: "Сколько дорог, сколько путей, "}
+			{chords: "  E            H                 F#m"}
 			{text: "Где я нашел близких мне людей, "}
+			{chords: "            H"}
 			{text: "Всех моих друзей. "}
+			{chords: "C#m         A         C#m         A"}
 			{text: "Добрых людей, верных сердец. "}
+			{chords: "   E              H         F#m"}
 			{text: "Все мы семья, а Господь - Отец, "}
+			{chords: "               H"}
 			{text: "Наш Господь - Отец! "}
 			{break:yes}
 			{refrain: "Приспів:"}
+			{chords: "  E                       G#m       C#m"}
 			{text: "Мы все, мы все одна семья. "}
+			{chords: "                  A                 E"}
 			{text: "Мы будем эту песню петь, "}
+			{chords: "E                    G#m      G#m"}
 			{text: "Когда придем на небеса "}
+			{chords: "                 A                     E"}
 			{text: "Отцу мы будем песню петь."}
 			{break:yes}
 			{text: "Сколько ночей было в пути, "}
@@ -4700,15 +4775,23 @@ export let songs = [
 	{
 		name: "Шалом, мои друзя"
 		lines: [
+			{chords: "      Dm                A"}
 			{text: "Шалом, мои друзья, "}
+			{chords: "                                  Dm"}
 			{text: "Храни Господь ваш дом, "}
+			{chords: "              Dm                        A"}
 			{text: "Пусть в сердце к вам войдёт "}
+			{chords: "                 Dm      C"}
 			{text: "Шалом, шалом "}
 			{break:yes}
 			{refrain: "Приспів:"}
+			{chords: "         F                       C "}
 			{text: "// И хоть не прост порой "}
+			{chords: "        Gm                Dm"}
 			{text: "Тот мир, где мы живём, "}
+			{chords: "          Dm           Gm"}
 			{text: "Пусть окружает нас "}
+			{chords: "       A           Dm"}
 			{text: "Шалом, шалом //2р."}
 			{break:yes}
 			{text: "Открыта сердца дверь, "}
@@ -4727,16 +4810,24 @@ export let songs = [
 			{text: "На-на-най, на-на-на-на-най "}
 			{text: "На-на-на, на-на-на-най //2р."}
 			{break:yes}
+			{chords: "C Em                  H7"}
 			{text: "Поднимем руки ввысь "}
+			{chords: "                       Em"}
 			{text: "И к Богу воззовём: "}
+			{chords: "     Em                          H7"}
 			{text: "Пошли Господь нам всем"}
+			{chords: "                  Em      D"}
 			{text: "Шалом, шалом" }
 			{break:yes}
 			{refrain: "Приспів:"}
+			{chords: "           G                D"}
 			{text: "// Нас не смутят пути, "}
+			{chords: "       Am            Em"}
 			{text: "Которыми пойдем. "}
+			{chords: "       Em                H7"}
 			{text: "Наградой будет нам "}
-			{text: "Шалом, шалом //2р. "}
+			{chords: "                    Em       (D)"}
+			{text: "Шалом, шалом //2р. "} 
 			{break:yes}
 			{text: "Войдем мы в град святой "}
 			{text: "Там вечность обретём "}
@@ -4753,9 +4844,13 @@ export let songs = [
 	{
 		name: "Спасибо Богу за вас"
 		lines: [
+			{chords: "   Em          C         G             D"}
 			{text: "Таких, как ты немного на свете "}
+			{chords: "   Em          C         G          D"}
 			{text: "Но всё же есть такие как ты "}
+			{chords: "   Em        C        G                D"}
 			{text: "Они всегда теплом тебя встретят "}
+			{chords: "   Em             C       G       D"}
 			{text: "Без ложной лести и красоты"}
 			{break:yes}
 			{text: "И может быть пройдут года, я не знаю "}
@@ -4791,13 +4886,19 @@ export let songs = [
 	{
 		name: "Ты дивно велик(Пс.103)"
 		lines: [
+			{chords: "Em          C              G          D"}
 			{text: "Благослови душа моя Господа"}
+			{chords: "  Em               C             G          D"}
 			{text: "Ты дивно велик Господи Боже мой"}
+			{chords: "    Em               C           G           D"}
 			{text: "Простираешь небеса Ты, как шатер"}
+			{chords: "  Em                 C         G        D"}
 			{text: "Величием и славою Ты облечен"}
 			{break:yes}
 			{refrain: "Приспів:"}
+			{chords: "   Em     C        G              D"}
 			{text: "// Буду петь всю жизнь мою,"}
+			{chords: "  Em   C       G     D"}
 			{text: "Буду петь Тебе //2р."}
 			{break:yes}
 			{bridge: "Проигрыш"}
@@ -4822,15 +4923,23 @@ export let songs = [
 	{
 		name:"Ты Царь и мой Бог"
 		lines: [
+			{chords: " Em                              Hm"}
 			{text: "Господи, услышь слова мои "}
+			{chords: "Am                 	            Em"}
 			{text: "Обратись, избавь меня"}
+			{chords: "  Em                        Hm"}
 			{text: "Спаси ради Твоей милости"}
+			{chords: "  Am                    Em"}
 			{text: "Ибо я к Тебе молюсь"}
 			{break:yes}
 			{refrain: "Приспів:"}
+			{chords: "  Em                   Am"}
 			{text: "Ты Царь и мой Бог"}
+			{chords: "  Am             Em"}
 			{text: "Я к Тебе молюсь "}
+			{chords: "  Em                   Hm"}
 			{text: "Ты Царь и мой Бог"}
+			{chords: "  Am                    Em"}
 			{text: "Вовек не постыжусь"}
 			{break:yes}
 			{bridge: "Проигрыш"}
@@ -4846,9 +4955,13 @@ export let songs = [
 			{text: "Ты Царь и мой Бог"}
 			{text: "Вовек не постыжусь"}
 			{break:yes}
+			{chords: "C                                G"}
 			{text: "Как величественно Имя Твое"}
+			{chords: "   D                                 Em"}
 			{text: "По всей земле слава Твоя "}
+			{chords: "  Am                      G"}
 			{text: "Когда смотрю на небеса"}
+			{chords: "               D                                  Em"}
 			{text: "«Кто есть я, что помнишь Ты меня?»"}
 			{break:yes}
 			{refrain: "Приспів:"}
@@ -4901,20 +5014,32 @@ export let songs = [
 	{
 		name: "Я вновь бегу к Тебе"
 		lines: [
+			{chords: "    G                                     D"}
 			{text: "В мире слабости я не одинок"}
+			{chords: "                                                      Em"}
 			{text: "С Тобой победить все смогу, Господь!"}
+			{chords: "                                         C"}
 			{text: "Ты воскрешаешь веру мою,"}
+			{chords: "                         D                             G"}
 			{text: "Свой путь доверять Твоей воле хочу."}
 			{break:yes}
+			{chords: "   G                                D"}
 			{text: "И когда грех охватит меня"}
+			{chords: "                                                                     Em"}
 			{text: "К Тебе прибегу, не справлюсь с ним без Тебя."}
+			{chords: "                                                C"}
 			{text: "Сердце свое открываю Христу -"}
+			{chords: "              D"}
 			{text: "Верой живу."}
 			{break:yes}
 			{refrain: "Приспів:"}              
+			{chords: "                               Em      C"}
 			{text: "Я вновь бегу к Тебе, Иисус,"}
+			{chords: "                      D"}
 			{text: "В твоем присутствии растворюсь,"}
+			{chords: "                           Em         C"}
 			{text: "Услышу голос Твой дорогой,"}
+			{chords: "             D"}
 			{text: "Я так хочу всегда быть с Тобой."}
 			{break:yes}
 			{text: "И когда грех охватит меня"}
@@ -4928,9 +5053,13 @@ export let songs = [
 			{text: "Услышу голос Твой дорогой,"}
 			{text: "Я так хочу всегда быть с Тобой   //2р."}
 			{break:yes}
+			{chords: "    Am                C"}
 			{text: "Слабый я, но все же"}
+			{chords: "              Em                     G     D"}
 			{text: "В Тебе сильным стану, Бог мой."}
+			{chords: "   Am            C"}
 			{text: "Ты всего дороже "}
+			{chords: "               Em                  D"}
 			{text: "Знаешь путь и сам ведешь домой! "}
 			{break:yes}
 			{refrain: "Приспів:"}                
