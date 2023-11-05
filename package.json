@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "scripts": {
     "dev": "imba -w index.html",
-    "build": "imba build index.html",
+    "build": "imba build index.html --outdir docs",
     "preview": "npx vite preview"
   },
   "devDependencies": {
