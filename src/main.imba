@@ -590,7 +590,7 @@ tag app
 					bgs: cover
 					filter: contrast(150%) grayscale(60%)
 				]>
-				<.full-screen [d:flex fld:column ta:center bgc:#00000066]>
+				<.full-screen [d:flex fld:column ta:center bgc:rgba(0, 0, 0, 0.375)]>
 					<h1 [c:white fs:3em m:auto auto 6vh]>
 						'СЛАВТЕ'
 						<br>
@@ -606,7 +606,7 @@ tag app
 						cursor:pointer
 						transform@hover: scale(1.1)
 					] @click=toggleSongsMenu> "СПІВАТИ"
-					<p[margin:0 auto 16px color: #c2834e]> "БУШТИНО 2020"
+					<p[margin:0 auto 16px color: #c2834e]> "БОГУСЛАВ 2023"
 		else
 			<main[p:64px {settings.show_chords ? '24px' : '4vw'} 128px fs:{settings.font.size}px 16vh max-width:100% ofx:auto] @mousemove=mousemove>
 				<song-tag song=songs[current_song_index] settings=settings>
@@ -716,7 +716,7 @@ tag app
 
 		.aside_arrows
 			w:2vw w:min(32px, max(16px, 2vw)) h:100% t:0 pos:fixed
-			bg@hover:#88888811 o:0 @hover:1 d:flex ai:center jc:center cursor:pointer
+			bg@hover:rgba(135, 135, 135, 0.1) o:0 @hover:1 d:flex ai:center jc:center cursor:pointer
 			zi:2
 
 		#navrow
