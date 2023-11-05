@@ -1,15 +1,15 @@
 {
   "entry:src/main.imba?web": {
-    "url": "/assets/main.F64HHHYE.js",
-    "path": "/home/bohuslav/projects/songbook/docs/assets/main.F64HHHYE.js"
+    "url": "/assets/main.DA4VM3VZ.js",
+    "path": "/home/bohuslav/projects/songbook/docs/assets/main.DA4VM3VZ.js"
   },
   "entry:src/service.imba?serviceworker": {
     "url": "/service.worker.js",
     "path": "/home/bohuslav/projects/songbook/docs/service.worker.js"
   },
   "*?css": {
-    "url": "/assets/index.HEF21FMI.css",
-    "path": "/home/bohuslav/projects/songbook/docs/assets/index.HEF21FMI.css"
+    "url": "/assets/index.Y5DXUOD5.css",
+    "path": "/home/bohuslav/projects/songbook/docs/assets/index.Y5DXUOD5.css"
   },
   "/index.html": {},
   "/assets/A.3OMKDQVA.png": {},
@@ -160,10 +160,10 @@
   "/assets/Hmaj7.OTWMS4VY.png": {},
   "/assets/Hsus.X7ELN7JH.png": {},
   "/assets/Hsus2.JQG33DVW.png": {},
-  "/assets/main.F64HHHYE.js": {},
+  "/assets/main.DA4VM3VZ.js": {},
   "/assets/green-leaves-plants.YL2JPTTT.jpeg": {},
-  "/assets/main.RTTNSUDA.css": {},
+  "/assets/main.PTA5YXHZ.css": {},
   "/service.worker.js": {},
-  "/assets/index.HEF21FMI.css": {},
+  "/assets/index.Y5DXUOD5.css": {},
   "main": "index.html"
 }
