@@ -1,6 +1,8 @@
-import './global_styles'
-import './song'
-import {songs} from './songs'
+import './global_styles.imba'
+import './song.imba'
+import {songs} from './songs.imba'
+
+import './service?serviceworker'
 
 # Sort songs by alphabet
 songs.sort(do |a, b|
@@ -36,7 +38,7 @@ for song, index in songs
 
 const agent = window.navigator.userAgent;
 const isWebkit = (agent.indexOf("AppleWebKit") > 0);
-const isIPad = (agent.indexOf("iPad") > 0);
+const isIPad = (agent.indexOf("iPad") > 0);zz
 const isIOS = (agent.indexOf("iPhone") > 0 || agent.indexOf("iPod") > 0)
 const isAndroid = (agent.indexOf("Android")  > 0)
 const isNewBlackBerry = (agent.indexOf("AppleWebKit") > 0 && agent.indexOf("BlackBerry") > 0)
@@ -582,7 +584,7 @@ tag app
 		if current_song_index < 0
 			<main.full-screen [us:none]>
 				<.full-screen[
-					bgi: url('/images/green-leaves-plants.jpeg')
+					bgi: url('../images/green-leaves-plants.jpeg')
 					bgp: 50% 50%
 					bgr: no-repeat
 					bgs: cover

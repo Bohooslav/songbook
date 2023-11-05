@@ -1,19 +1,16 @@
 {
-  "name": "songbook",
+  "name": "imba-project",
+  "version": "3.0.0",
   "scripts": {
-    "start": "imba -w server.imba",
-    "build": "imba build server.imba --no-hashing"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "imba": "^2.0.0-alpha.155"
+    "dev": "imba -w index.html",
+    "build": "imba build index.html",
+    "preview": "npx vite preview"
   },
   "devDependencies": {
-    "@types/node": "^14.17.5"
+    "imba": "^2.0.0-alpha.231"
   },
   "repository": "Bohooslav/songbook",
-  "description": "my personal website, but a songbook for a local church",
-  "version": "1.0.0",
+  "description": "Songbook for a local church",
   "homepage": "https://github.com/Bohooslav/songbook",
   "author": "Bohuslav (https://github.com/Bohooslav)",
   "license": "ISC"

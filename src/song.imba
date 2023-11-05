@@ -1,10 +1,12 @@
-export tag song-tag
+import chords from './chords'
+
+tag song-tag
 	song = {}
 	settings = {}
 
 	def chordImgUrl chord
 		chord = chord.replace('#', 'x').replace('B', 'H')
-		return "/chords/{chord}.png"
+		return chords[chord]
 
 
 	<self[ff:{settings.font.family} fs:{settings.font.size} lh:{settings.font.line-height}]>
