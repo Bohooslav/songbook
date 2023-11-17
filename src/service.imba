@@ -6,7 +6,7 @@ let p = do |s| console.log "{cache_name} {s}"
 p "loaded"
 
 let urls = [
-	'./'
+	'/'
 ]
 
 self.addEventListener('fetch') do |e|
@@ -17,8 +17,16 @@ self.addEventListener('fetch') do |e|
 			request
 		else
 			p "not cached, fetching {e.request.url}"
-			fetch e.request
-	e.respondWith(caches.match(e.request.url).then(intercept))
+			return request || fetch(e.request).then(do|response|
+				const responseClone = response.clone()
+				p "Populate cache with {e.request.url}"
+				caches.open(cache_name).then(do|cache|
+					cache.put(e.request, responseClone)
+				)
+				return response
+			)				
+
+	e.respondWith(caches.match(e.request.url).then(intercept).catch(do return caches.match('/')))
 
 self.addEventListener('install') do |e|
 	p "install"

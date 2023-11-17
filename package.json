@@ -1,6 +1,6 @@
 {
   "name": "imba-project",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "scripts": {
     "dev": "imba -w index.html",
     "build": "imba build index.html --outdir docs",
