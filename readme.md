@@ -13,9 +13,9 @@ You will also see any lint errors in the console.
 
 ### `npm run build`
 
-Builds the app for production to the `dist` folder.
+Builds the app for production to the `docs` folder.
 
 Increment version for service worker in `package.json`.
-Copy CNAME and site.webmanifest to `dist` folder.
+Copy CNAME and site.webmanifest to `docs` folder.
 Commit the changes.
 Push to the master branch of the repo.

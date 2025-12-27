@@ -1,5 +1,5 @@
 global css
-	@root[data-light="dark"]
+	@root[data-theme="dark"]
 		--background-color: rgb(4,6,12)
 		--text-color: rgb(255,238,238)
 		--btn-bg: rgba(136,136,255,0.25)
@@ -7,8 +7,7 @@ global css
 		--accent-color: rgb(169,128,25)
 		--accent-hover-color: rgba(225,175,51,0.996)
 
-
-	@root[data-light="light"]
+	@root[data-theme="light"]
 		--background-color: rgb(235, 219, 183)
 		--text-color: rgb(46, 39, 36)
 		--btn-bg: rgb(226, 204, 152)
@@ -62,3 +61,7 @@ global css
 		color: $text-color
 		# overflow: hidden
 	
+	button
+		bd: none
+		cursor: pointer
+		font: inherit

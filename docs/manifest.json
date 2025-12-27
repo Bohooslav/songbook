@@ -1,19 +1,23 @@
 {
   "entry:src/main.imba?web": {
-    "url": "/songbook/assets/main.CKWVOOZ3.js",
-    "path": "/home/bohuslav/projects/songbook/docs/assets/main.CKWVOOZ3.js"
+    "url": "/songbook/assets/main.S32QCARM.js",
+    "path": "/home/bohuslav/projects/songbook/docs/assets/main.S32QCARM.js"
   },
   "entry:src/service.imba?serviceworker": {
     "url": "/songbook/service.worker.js",
     "path": "/home/bohuslav/projects/songbook/docs/service.worker.js"
   },
   "*?css": {
-    "url": "/songbook/assets/index.LCIILJOY.css",
-    "path": "/home/bohuslav/projects/songbook/docs/assets/index.LCIILJOY.css"
+    "url": "/songbook/assets/index.8TF894UH.css",
+    "path": "/home/bohuslav/projects/songbook/docs/assets/index.8TF894UH.css"
   },
   "/songbook/assets/green-leaves-plants_icon.DBTIEXEW.jpeg": {},
   "/songbook/assets/apple-touch-icon.I2WU5UYB.png": {},
   "/songbook/index.html": {},
+  "/songbook/assets/moon.WKBVH4FS.svg": {},
+  "/songbook/assets/sun.CUNV2XDY.svg": {},
+  "/songbook/assets/chevron-up.VSZIZVW2.svg": {},
+  "/songbook/assets/chevron-down.YVIWJPVD.svg": {},
   "/songbook/assets/A.3OMKDQVA.png": {},
   "/songbook/assets/A5.VAN7OXNK.png": {},
   "/songbook/assets/A6.2JZB3KCS.png": {},
@@ -162,10 +166,14 @@
   "/songbook/assets/Hmaj7.OTWMS4VY.png": {},
   "/songbook/assets/Hsus.X7ELN7JH.png": {},
   "/songbook/assets/Hsus2.JQG33DVW.png": {},
-  "/songbook/assets/main.CKWVOOZ3.js": {},
+  "/songbook/assets/chevron-right.2N27NZ2B.svg": {},
+  "/songbook/assets/chevron-left.XJ74H5IY.svg": {},
+  "/songbook/assets/book-open-text.QOLCNPBU.svg": {},
+  "/songbook/assets/sliders-horizontal.4PAFBLX2.svg": {},
+  "/songbook/assets/main.S32QCARM.js": {},
   "/songbook/assets/green-leaves-plants.YL2JPTTT.jpeg": {},
-  "/songbook/assets/main.LRDU2KQJ.css": {},
+  "/songbook/assets/main.CWPEEZOC.css": {},
   "/songbook/service.worker.js": {},
-  "/songbook/assets/index.LCIILJOY.css": {},
+  "/songbook/assets/index.8TF894UH.css": {},
   "main": "index.html"
 }

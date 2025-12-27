@@ -1,13 +1,14 @@
 {
   "name": "imba-project",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "scripts": {
     "dev": "imba -w index.html",
     "build": "imba build index.html --base /songbook --outdir docs",
     "preview": "npx vite preview"
   },
   "devDependencies": {
-    "imba": "^2.0.0-alpha.231"
+    "imba": "^2.0.0-alpha.247",
+    "lucide-static": "^0.562.0"
   },
   "repository": "Bohooslav/songbook",
   "description": "Songbook for a local church",

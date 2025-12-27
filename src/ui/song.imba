@@ -1,34 +1,30 @@
-import chords from './chords'
+import chords from '../chords'
 
-tag song-tag
-	song = {}
-	settings = {}
-
+tag song-tag < main
 	def chordImgUrl chord
 		chord = chord.replace('#', 'x').replace('B', 'H')
 		return chords[chord]
 
-
-	<self[ff:{settings.font.family} fs:{settings.font.size} lh:{settings.font.line-height}]>
+	<self[ff:{theme.fontFamily} fs:{theme.fontSize} lh:{theme.lineHeight}]>
 		<h1[lh:1]>
-			song.name
-			if song.transposition > 0
+			songbook.currentSong.name
+			if songbook.currentSong.transposition > 0
 				' +'
-				song.transposition
-			elif song.transposition < 0
+				songbook.currentSong.transposition
+			elif songbook.currentSong.transposition < 0
 				' '
-				song.transposition
-		<pre .wrapped=settings.word_wrap>
-			for line in song.lines
+				songbook.currentSong.transposition
+		<pre .wrapped=theme.wordWrap>
+			for line in songbook.currentSong.lines
 				<div .break=line.break>
-					if line.text && settings.show_text
+					if line.text && theme.showText
 						<p> line.text
 					elif line.refrain
 						<p.refrain> line.refrain
 					elif line.bridge
 						<p.bridge> line.bridge
-					elif line.chords && settings.show_chords
-						<p.chords .without_text=!settings.show_text>
+					elif line.chords && theme.showChords
+						<p.chords .without_text=!theme.showText>
 							for part in line.chords
 								<span>
 									if /[A-H]/.test(part[0])
@@ -36,10 +32,9 @@ tag song-tag
 											part
 											if document.getSelection().isCollapsed
 												<.chord_img>
-													<img .invert=(settings.theme == 'dark') src=chordImgUrl(part) alt=part>
+													<img .invert=(theme.light == 'dark') src=chordImgUrl(part) alt=part>
 									else
 										part
-	
 
 
 	css
@@ -94,7 +89,7 @@ tag song-tag
 	css .chord > .chord_img
 		o:0
 		visibility:hidden
-		transform: scale(0.2)
+		transform: scale(0.8)
 		origin: bottom center
 	
 	css .chord@hover > .chord_img
