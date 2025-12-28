@@ -1,8 +1,6 @@
 import { getValue, setValue } from '../utils' 
 
-import activities from './Activities'
-
-import type { colorTheme } from './types'
+import type { colorTheme } from '../types'
 
 const html = document.documentElement
 

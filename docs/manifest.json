@@ -1,19 +1,20 @@
 {
   "entry:src/main.imba?web": {
-    "url": "/songbook/assets/main.S32QCARM.js",
-    "path": "/home/bohuslav/projects/songbook/docs/assets/main.S32QCARM.js"
+    "url": "/songbook/assets/main.CHSIZCOM.js",
+    "path": "/home/bohuslav/projects/songbook/docs/assets/main.CHSIZCOM.js"
   },
   "entry:src/service.imba?serviceworker": {
     "url": "/songbook/service.worker.js",
     "path": "/home/bohuslav/projects/songbook/docs/service.worker.js"
   },
   "*?css": {
-    "url": "/songbook/assets/index.8TF894UH.css",
-    "path": "/home/bohuslav/projects/songbook/docs/assets/index.8TF894UH.css"
+    "url": "/songbook/assets/index.LFXSIOLN.css",
+    "path": "/home/bohuslav/projects/songbook/docs/assets/index.LFXSIOLN.css"
   },
   "/songbook/assets/green-leaves-plants_icon.DBTIEXEW.jpeg": {},
   "/songbook/assets/apple-touch-icon.I2WU5UYB.png": {},
   "/songbook/index.html": {},
+  "/songbook/assets/search.FFUAP4ZM.svg": {},
   "/songbook/assets/moon.WKBVH4FS.svg": {},
   "/songbook/assets/sun.CUNV2XDY.svg": {},
   "/songbook/assets/chevron-up.VSZIZVW2.svg": {},
@@ -170,10 +171,10 @@
   "/songbook/assets/chevron-left.XJ74H5IY.svg": {},
   "/songbook/assets/book-open-text.QOLCNPBU.svg": {},
   "/songbook/assets/sliders-horizontal.4PAFBLX2.svg": {},
-  "/songbook/assets/main.S32QCARM.js": {},
+  "/songbook/assets/main.CHSIZCOM.js": {},
   "/songbook/assets/green-leaves-plants.YL2JPTTT.jpeg": {},
-  "/songbook/assets/main.CWPEEZOC.css": {},
+  "/songbook/assets/main.7HKZMVZ3.css": {},
   "/songbook/service.worker.js": {},
-  "/songbook/assets/index.8TF894UH.css": {},
+  "/songbook/assets/index.LFXSIOLN.css": {},
   "main": "index.html"
 }

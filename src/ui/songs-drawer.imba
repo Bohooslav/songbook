@@ -1,6 +1,8 @@
 import { scoreSearch } from '../utils'
 import {songs} from '../songs.imba'
 
+import Search from 'lucide-static/icons/search.svg'
+
 
 tag songs-drawer < nav
 	@observable query = ''
@@ -28,19 +30,15 @@ tag songs-drawer < nav
 
 	<self[d:flex h:100% fld:column]>
 		<h2 @click=(songbook.currentSongIndex = -1)> 'СЛАВТЕ ГОСПОДА'
+		<[d:flex ai:center pl:1rem]>
+			<svg src=Search aria-hidden=true [fls:0]>
+			<input$search aria-label='Пошук' placeholder='Пошук' bind=query>
 		<ul [fl:1 ofy:auto]>
 			for song, i in filterSongs
 				<li[p:.5rem 1rem c@hover: $accent-hover-color cursor:pointer] role='button' @click=songbook.goToSong(song)> song.name
 			unless filterSongs.length
 				<pre[ff:inherit ta:center]> '(ಠ╭╮ಠ)    ¯\\_(ツ)_/¯   ノ( ゜-゜ノ)'
 			<[h:128px]>
-		<[d:flex]>
-			<input$search aria-label='Пошук' placeholder='Пошук' bind=query>
-			<button [
-				bg:$background-color fs:2em c@hover:firebrick size:59px
-				bd:none cursor:pointer
-			] @click=(query = '')>
-				<span[transform:rotate(45deg) d:inline-block o:0.7 @hover:1]> '+'
 
 
 	css
@@ -50,10 +48,9 @@ tag songs-drawer < nav
 			c@hover:$accent-hover-color
 
 		$search
-			w:calc(100% - 59px)
+			fl:1 w:100%
 			bg:$background-color
 			fs:1.2em
-			p:16px
-			pr:0
+			p:.5rem
 			c:inherit
 			bd:none

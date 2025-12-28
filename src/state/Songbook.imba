@@ -12,7 +12,7 @@ for song, index in allSongs
 	for line in song.lines
 		if line.chords
 			# Then parse the chords line and separate spaces from chords
-			let chords = []
+			let chords\string[] = []
 			let chord = ''
 			let whitespace = ''
 			for character in line.chords
